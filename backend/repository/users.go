@@ -15,14 +15,14 @@ func NewUserRepository(db *sql.DB) *UserRepository {
 
 func (u *UserRepository) GetUserByUsername(username string) (*User, error) {
 	user := &User{}
-	rows, err := u.db.Query("SELECT id, username, password, role, logged_in FROM users WHERE username = ?", username)
+	rows, err := u.db.Query("SELECT id, fullname, username, password, role, logged_in FROM users WHERE username = ?", username)
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
 
 	for rows.Next() {
-		err := rows.Scan(&user.ID, &user.Username, &user.Password, &user.Role, &user.LoggedIn, &user.Token)
+		err := rows.Scan(&user.ID, &user.Fullname, &user.Username, &user.Password, &user.Role, &user.LoggedIn, &user.Token)
 		if err != nil {
 			return nil, err
 		}
@@ -41,7 +41,7 @@ func (u *UserRepository) GetAllUsers() ([]User, error) {
 
 	for rows.Next() {
 		var user User
-		err := rows.Scan(&user.ID, &user.Username, &user.Password, &user.Role, &user.LoggedIn, &user.Token)
+		err := rows.Scan(&user.ID, &user.Fullname, &user.Username, &user.Password, &user.Role, &user.LoggedIn, &user.Token)
 		if err != nil {
 			return nil, err
 		}
@@ -74,11 +74,10 @@ func (u *UserRepository) GetUserRole(username string) (*string, error) {
 
 //login
 func (u *UserRepository) Login(username string, password string) (*User, error) {
-	//call function logoutAll
-	err := u.LogoutAll()
-	if err != nil {
-		return nil, err
-	}
+	// err := u.LogoutAll()
+	// if err != nil {
+	// 	return nil, err
+	// }
 
 	users, err := u.GetAllUsers()
 	if err != nil {
@@ -111,8 +110,8 @@ func (u *UserRepository) Logout(username string) error {
 }
 
 //insert new user
-func (u *UserRepository) InsertUser(username string, password string, role string, loggedin string) error {
-	_, err := u.db.Exec("INSERT INTO users (username, password, role, logged_in) VALUES (?, ?, ?, ?)", username, password, role, loggedin)
+func (u *UserRepository) SignUp(fullname string, username string, password string, role string, loggedin string) error {
+	_, err := u.db.Exec("INSERT INTO users (fullname, username, password, role, logged_in) VALUES (?, ?, ?, ?, ?)", fullname, username, password, role, loggedin)
 	if err != nil {
 		return err
 	}
