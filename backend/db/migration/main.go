@@ -11,7 +11,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	defer db.Close()
+	//defer db.Close()
 
 	sqlStmt := `
 		CREATE TABLE IF NOT EXISTS users (
