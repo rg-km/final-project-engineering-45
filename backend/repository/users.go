@@ -73,7 +73,7 @@ func (u *UserRepository) GetUserRole(username string) (*string, error) {
 }
 
 //login
-func (u *UserRepository) Login(username string, password string) (*User, error) {
+func (u *UserRepository) Login(username string, password string) (*string, error) {
 	// err := u.LogoutAll()
 	// if err != nil {
 	// 	return nil, err
@@ -92,7 +92,7 @@ func (u *UserRepository) Login(username string, password string) (*User, error) 
 				return nil, err
 			}
 
-			return &user, nil
+			return &user.Username, nil
 		}
 	}
 

@@ -18,7 +18,7 @@ type LoginSuccessResponse struct {
 	Token    string `json:"token"`
 }
 
-type LoginErrorResponse struct {
+type AuthErrorResponse struct {
 	Error string `json:"message"`
 }
 
@@ -45,18 +45,18 @@ func (api *API) login(w http.ResponseWriter, req *http.Request) {
 	encoder := json.NewEncoder(w)
 	if err != nil {
 		w.WriteHeader(http.StatusUnauthorized)
-		encoder.Encode(LoginErrorResponse{Error: err.Error()})
+		encoder.Encode(AuthErrorResponse{Error: err.Error()})
 		return
 	}
 
-	userRole, _ := api.usersRepo.GetUserRole(res.Username)
+	userRole, _ := api.usersRepo.GetUserRole(*res)
 
 	// Deklarasi expiry time untuk token jwt
 	expirationTime := time.Now().Add(60 * time.Minute)
 
 	// Buat claim menggunakan variable yang sudah didefinisikan diatas
 	claims := &Claims{
-		Username: res.Username,
+		Username: *res,
 		Role:     *userRole,
 		StandardClaims: jwt.StandardClaims{
 			// expiry time menggunakan time millisecond

@@ -34,12 +34,12 @@ func (api *API) AuthMiddleWare(next http.Handler) http.Handler {
 			if err == http.ErrNoCookie {
 				// return unauthorized ketika token kosong
 				w.WriteHeader(http.StatusUnauthorized)
-				encoder.Encode(LoginErrorResponse{Error: err.Error()})
+				encoder.Encode(AuthErrorResponse{Error: err.Error()})
 				return
 			}
 			// return bad request ketika field token tidak ada
 			w.WriteHeader(http.StatusBadRequest)
-			encoder.Encode(LoginErrorResponse{Error: err.Error()})
+			encoder.Encode(AuthErrorResponse{Error: err.Error()})
 			return
 		}
 
@@ -56,19 +56,19 @@ func (api *API) AuthMiddleWare(next http.Handler) http.Handler {
 			if err == jwt.ErrSignatureInvalid {
 				// return unauthorized ketika signature invalid
 				w.WriteHeader(http.StatusUnauthorized)
-				encoder.Encode(LoginErrorResponse{Error: err.Error()})
+				encoder.Encode(AuthErrorResponse{Error: err.Error()})
 				return
 			}
 			// return bad request ketika field token tidak ada
 			w.WriteHeader(http.StatusBadRequest)
-			encoder.Encode(LoginErrorResponse{Error: err.Error()})
+			encoder.Encode(AuthErrorResponse{Error: err.Error()})
 			return
 		}
 
 		//return unauthorized ketika token sudah tidak valid (biasanya karna token expired)
 		if !tkn.Valid {
 			w.WriteHeader(http.StatusUnauthorized)
-			encoder.Encode(LoginErrorResponse{Error: err.Error()})
+			encoder.Encode(AuthErrorResponse{Error: err.Error()})
 			return
 		}
 
@@ -86,7 +86,7 @@ func (api *API) AdminMiddleware(next http.Handler) http.Handler {
 		role := r.Context().Value("role")
 		if role != "admin" {
 			w.WriteHeader(http.StatusForbidden)
-			encoder.Encode(LoginErrorResponse{Error: "forbidden access"})
+			encoder.Encode(AuthErrorResponse{Error: "forbidden access"})
 			return
 		}
 
@@ -100,7 +100,7 @@ func (api *API) GET(next http.Handler) http.Handler {
 		encoder := json.NewEncoder(w)
 		if r.Method != http.MethodGet {
 			w.WriteHeader(http.StatusMethodNotAllowed)
-			encoder.Encode(LoginErrorResponse{Error: "Need GET Method!"})
+			encoder.Encode(AuthErrorResponse{Error: "Need GET Method!"})
 			return
 		}
 
@@ -114,7 +114,7 @@ func (api *API) POST(next http.Handler) http.Handler {
 		encoder := json.NewEncoder(w)
 		if r.Method != http.MethodPost {
 			w.WriteHeader(http.StatusMethodNotAllowed)
-			encoder.Encode(LoginErrorResponse{Error: "Need POST Method!"})
+			encoder.Encode(AuthErrorResponse{Error: "Need POST Method!"})
 			return
 		}
 
