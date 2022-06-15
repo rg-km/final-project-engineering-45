@@ -9,6 +9,8 @@ import (
 )
 
 type User struct {
+	Email    string `json:"email"`
+	FullName string `json:"fullname"`
 	Username string `json:"username"`
 	Password string `json:"password"`
 }
@@ -124,21 +126,21 @@ func (api *API) logout(w http.ResponseWriter, req *http.Request) {
 }
 
 //signup
-// func (api *API) signup(w http.ResponseWriter, req *http.Request) {
-// 	api.AllowOrigin(w, req)
-// 	var user User
-// 	err := json.NewDecoder(req.Body).Decode(&user)
-// 	if err != nil {
-// 		w.WriteHeader(http.StatusBadRequest)
-// 		return
-// 	}
+func (api *API) signup(w http.ResponseWriter, req *http.Request) {
+	api.AllowOrigin(w, req)
+	var user User
+	err := json.NewDecoder(req.Body).Decode(&user)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
 
-// 	err = api.usersRepo.Signup(user.Username, user.Password)
-// 	if err != nil {
-// 		w.WriteHeader(http.StatusBadRequest)
-// 		return
-// 	}
+	err = api.usersRepo.Signup(user.Email, user.FullName, user.Username, user.Password)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
 
-// 	w.WriteHeader(http.StatusOK)
-// 	w.Write([]byte("signup success"))
-// }
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("signup success"))
+}

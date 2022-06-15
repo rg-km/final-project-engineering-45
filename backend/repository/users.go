@@ -82,8 +82,8 @@ func (u *UserRepository) Login(username string, password string) (*string, error
 }
 
 //insert new user
-func (u *UserRepository) InsertNewUser(fullname string, username string, password string, role string, loggedin string) error {
-	_, err := u.db.Exec("INSERT INTO users (fullname, username, password, role, logged_in) VALUES (?, ?, ?, ?, ?)", fullname, username, password, role, loggedin)
+func (u *UserRepository) InsertNewUser(fullname string, email string, username string, password string) error {
+	_, err := u.db.Exec("INSERT INTO users (fullname, email, username, password, role, logged_in) VALUES (?, ?, ?, ?, 'user', 'false')", fullname, email, username, password)
 	if err != nil {
 		return err
 	}
