@@ -20,6 +20,7 @@
 }
 
 .header-about {
+  font-weight: 700;
   font-size: 3rem;
 }
 
@@ -40,10 +41,11 @@
 
 .text {
   text-align: left;
+  font-family: 'Poppins', sans-serif;
 }
 .text h1 {
   font-size: 3rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 .text p {
   padding-bottom: 20px;
@@ -53,6 +55,7 @@
   color: black;
 }
 
+/*kenapa pilih rightway*/
 .content-about {
   background-color: #0918CC;
   color: white;
@@ -84,4 +87,33 @@
 
 .header-logo {
   font-size: 5rem;
+}
+
+/*konten yang kami berikan*/
+.content-available {
+  height: 300px;
+  color: black;
+  padding: 50px 0px;
+  text-align: center;
+}
+
+.content-tersedia {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.box-content {
+  flex-basis: 30%;
+  padding-top: 60px;
+}
+.logo-content {
+  align-items: center;
+  font-size: 5rem;
+  color: #0918CC;
+}
+.text-konten {
+  font-size: 1.5rem;
+  font-weight: 400;
 }

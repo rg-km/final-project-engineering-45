@@ -22,8 +22,8 @@ const MainContent = () => {
                 </div>
                 <div className="main-content-item box-2">
                     <div className="main-content-item--text">
-                        <h2 className="heading-content">Logbook Kampus Menambah Wawasan</h2>
-                        <p className="text-content">Ketahuilah informasi kampus yang ingin kalian jadikan sebagai tempat untuk mengasah skill kalian, demi mencapai masa depan yang kalian inginkan, dengan informasi umum yang diberikan oleh kampus terkait.</p>
+                        <h2 className="heading-content">Persiapan Masuk Perkuliahan</h2>
+                        <p className="text-content">Ketahuilah apa saja sih yang perlu kalian persiapkan dengan matang sebelum memasuki dunia perkuliahan ini, pastinya ada banyak hal yang perlu kalian ketahui terlebih dahulu, jadi jangan lewatkan artikel yang kami berikan ini. </p>
                         <Link to="/materi"><Button buttonStyle="btn--primary" buttonSize="btn--medium">Ketahui Lebih Lanjut</Button></Link>
                     </div>
                     <div className="main-content-item--image">

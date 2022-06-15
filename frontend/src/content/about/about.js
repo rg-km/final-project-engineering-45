@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import background from "../../component/image/hero-image.jpg";
 import Navbar from "../../component/navbar/navbar";
+import Footer from '../../component/footer/footer';
 import aboutImage from "../../component/image/about1.png";
 import Button from "../../component/button/button";
 import "./about.css";
@@ -17,7 +18,7 @@ const About = () => {
 					<h1 className="header-about">Welcome To RightWay</h1>
 					<p className="text-about">
 						Kami akan membantu kalian untuk menentukan masa depan
-						yang cocok untuk kalian
+						yang sesuai untuk kalian
 					</p>
 				</div>
 			</div>
@@ -70,6 +71,30 @@ const About = () => {
 					</div>
 				</div>
 			</div>
+			<div className='content-available'>
+				<h1>Konten Yang Kami Berikan</h1>
+				<div className='content-tersedia'>
+					<div className='box-content'>
+						<Link to='/fakultas'>
+							<h1 className='logo-content'><i className='fa-solid fa-graduation-cap'></i></h1>
+						</Link>
+						<p className='text-konten'>Fakultas</p>
+					</div>
+					<div className='box-content'>
+						<Link to='/fakultas'>
+							<h1 className='logo-content'><i className='fa-solid fa-building-columns'></i></h1>
+						</Link>
+						<p className='text-konten'>Program Studi</p>
+					</div>
+					<div className='box-content'>
+						<Link to='/panduan'>
+							<h1 className='logo-content'><i className='fa-solid fa-book'></i></h1>
+						</Link>
+						<p className='text-konten'>Panduan</p>
+					</div>
+				</div>
+			</div>
+			<Footer />
 		</>
 	);
 };

@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <>
             <Navbar />
-            <HeroSection headLine='Welcome to the Right Way' description='Kami adalah teman bagi anda yang akan memberikan berbagai informasi lengkap tentang program studi beserta penjurusan yang ada di dalamnya. Lalu tidak hanya itu, akan ada penjelasan tentang program studi tersebut dan prospek kerja kedepannya seperti apa.' buttonLabel='Learn More' alt='Hero Section' />
+            <HeroSection headLine='Welcome to the Right Way' description='Kami adalah teman bagi anda yang akan memberikan berbagai informasi lengkap tentang program studi beserta penjurusan yang ada di dalamnya. Lalu tidak hanya itu, akan ada penjelasan tentang program studi tersebut dan prospek kerja kedepannya seperti apa.' buttonLabel='Ketahui Lebih Lanjut' alt='Hero Section' />
             <MainContent />
             <Footer />
         </>
