@@ -11,19 +11,21 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	defer db.Close()
+	//defer db.Close()
 
 	sqlStmt := `
 		CREATE TABLE IF NOT EXISTS users (
 			id INTEGER PRIMARY KEY AUTOINCREMENT,
+			fullname VARCHAR(50) NOT NULL,
+			email VARCHAR(50) NOT NULL,
 			username VARCHAR(64) NOT NULL,
 			password VARCHAR(64) NOT NULL,
 			role VARCHAR(64) NOT NULL,
 			logged_in BOOLEAN NOT NULL,
 		);
 		
-		INSERT INTO users (username, password, role, logged_in) 
-		VALUES ('admin', 'admin', 'admin', false);`
+		INSERT INTO users (id, fullname, email, username, password, role, logged_in) 
+		VALUES (0001, 'admin rightway','admin@admin.com' 'admin', 'admin', 'admin', false);`
 	_, err = db.Exec(sqlStmt)
 	if err != nil {
 		panic(err)
