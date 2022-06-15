@@ -20,8 +20,9 @@ type Fakultas struct {
 }
 
 type ProgramStudi struct {
-	ID         int64     `db:"id"`
-	ProdiName  string    `db:"prodi_name"`
-	FakultasID int64     `db:"fakultas_id"`
-	CreatedAt  time.Time `db:"created_at"`
+	ID           int64     `db:"id"`
+	ProdiName    string    `db:"prodi_name"`
+	FakultasID   int64     `db:"fakultas_id"`
+	FakultasName string    `db:"fakultas_name"`
+	CreatedAt    time.Time `db:"created_at"`
 }
