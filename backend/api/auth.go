@@ -9,10 +9,10 @@ import (
 )
 
 type User struct {
-	Email    string `json:"email"`
-	FullName string `json:"fullname"`
 	Username string `json:"username"`
 	Password string `json:"password"`
+	Email    string `json:"email"`
+	Fullname string `json:"fullname"`
 }
 
 type LoginSuccessResponse struct {
@@ -21,10 +21,10 @@ type LoginSuccessResponse struct {
 }
 
 type AuthErrorResponse struct {
-	Error string `json:"message"`
+	Error string `json:"error"`
 }
 
-var jwtKey = []byte("secret_key")
+var jwtKey = []byte("key")
 
 type Claims struct {
 	Username string
@@ -135,7 +135,7 @@ func (api *API) signup(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	err = api.usersRepo.Signup(user.Email, user.FullName, user.Username, user.Password)
+	err = api.usersRepo.Signup(user.Email, user.Fullname, user.Username, user.Password)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
 		return

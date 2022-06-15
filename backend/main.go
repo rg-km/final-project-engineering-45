@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	db, err := sql.Open("sqlite3", "backend/db/rightaway.db")
+	db, err := sql.Open("sqlite3", "db/rightway.db")
 	if err != nil {
 		panic(err)
 	}
