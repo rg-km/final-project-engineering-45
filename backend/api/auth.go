@@ -82,11 +82,18 @@ func (api *API) login(w http.ResponseWriter, req *http.Request) {
 		Path:    "/",
 	})
 
-	json.NewEncoder(w).Encode(LoginSuccessResponse{Username: user.Username, Token: tokenString})
+	json.NewEncoder(w).Encode(LoginSuccessResponse{Username: *res, Token: tokenString})
 }
 
 func (api *API) logout(w http.ResponseWriter, req *http.Request) {
 	api.AllowOrigin(w, req)
+
+	//call logoutall function in usersRepo
+	err := api.usersRepo.LogoutAll()
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
 
 	token, err := req.Cookie("token")
 	if err != nil {
@@ -105,8 +112,10 @@ func (api *API) logout(w http.ResponseWriter, req *http.Request) {
 	}
 
 	c := http.Cookie{
-		Name:   "token",
-		MaxAge: -1,
+		Name:    "token",
+		Value:   "",
+		Expires: time.Unix(0, 0),
+		Path:    "/",
 	}
 	http.SetCookie(w, &c)
 
