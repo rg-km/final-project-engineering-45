@@ -1,10 +1,10 @@
-import React from 'react'
-import {Outlet, Link} from 'react-router-dom';
-import Navbar from '../../component/navbar/navbar';
-import Footer from '../../component/footer/footer';
-import Button from '../../component/button/button';
-import {MenuFakultas} from './menuFakultas';
-import './fakultas.css';
+import React from "react";
+import { Outlet, Link } from "react-router-dom";
+import Navbar from "../../component/navbar/navbar";
+import Footer from "../../component/footer/footer";
+import Button from "../../component/button/button";
+import { MenuFakultas } from "./menuFakultas";
+import "./fakultas.css";
 
 const Fakultas = () => {
     return (
@@ -24,7 +24,10 @@ const Fakultas = () => {
                                     <Link className={item.cName} to={item.url}>
                                         {item.title}
                                     </Link>
-                                    <Link to={item.url} className="more-content">
+                                    <Link
+                                        to={item.url}
+                                        className="more-content"
+                                    >
                                         Lihat selengkapnya
                                     </Link>
                                 </div>
