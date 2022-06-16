@@ -28,9 +28,9 @@ func NewAPI(usersRepo repository.UserRepository, fakultasRepo repository.Fakulta
 	mux.Handle("/api/user/signup", api.POST(http.HandlerFunc(api.signup)))
 
 	mux.Handle("/api/fakultas/list", api.GET(api.AuthMiddleWare(http.HandlerFunc(api.fakultasList))))
-
 	mux.Handle("/api/prodi/list", api.GET(api.AuthMiddleWare(http.HandlerFunc(api.prodiList))))
 
+	//mux.Handle("/api/prodi/add", api.POST(api.AuthMiddleWare(api.AdminMiddleware(http.HandlerFunc(api.addProdi)))))
 	return api
 }
 

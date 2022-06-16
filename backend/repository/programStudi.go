@@ -1,6 +1,10 @@
 package repository
 
-import "database/sql"
+import (
+	"database/sql"
+
+	_ "github.com/mattn/go-sqlite3"
+)
 
 type ProdiRepository struct {
 	db *sql.DB
@@ -8,6 +12,34 @@ type ProdiRepository struct {
 
 func NewProdiRepository(db *sql.DB) *ProdiRepository {
 	return &ProdiRepository{db: db}
+}
+
+//fetch prodi by name
+func (p *ProdiRepository) FetchProdiByName(prodiName string) (ProgramStudi, error) {
+	sqlStatement := `SELECT 
+	prodi.id,
+	prodi.prodi_name,
+	prodi.fakultas_id,
+	fakultas.fakultas_name,
+	prodi.created_at
+	FROM program_studi prodi
+	INNER JOIN fakultas ON prodi.fakultas_id = fakultas.id
+	WHERE prodi.prodi_name = ?`
+
+	var prodi ProgramStudi
+	rows := p.db.QueryRow(sqlStatement, prodiName)
+	err := rows.Scan(
+		&prodi.ID,
+		&prodi.ProdiName,
+		&prodi.FakultasID,
+		&prodi.FakultasName,
+		&prodi.CreatedAt,
+	)
+	if err != nil {
+		return prodi, err
+	}
+
+	return prodi, nil
 }
 
 func (p *ProdiRepository) FetchProdi() ([]ProgramStudi, error) {
@@ -46,4 +78,45 @@ func (p *ProdiRepository) FetchProdi() ([]ProgramStudi, error) {
 	}
 
 	return prodi, nil
+}
+
+//fetch prodi by id
+func (p *ProdiRepository) FetchProdiByID(id int64) (ProgramStudi, error) {
+	var prodi ProgramStudi
+
+	sqlStatement := `SELECT 
+	prodi.id,
+	prodi.prodi_name,
+	prodi.fakultas_id,
+	fakultas.fakultas_name,
+	prodi.created_at
+	FROM program_studi prodi
+	INNER JOIN fakultas ON prodi.fakultas_id = fakultas.id
+	WHERE prodi.id = ?`
+
+	rows := p.db.QueryRow(sqlStatement, id)
+	err := rows.Scan(
+		&prodi.ID,
+		&prodi.ProdiName,
+		&prodi.FakultasID,
+		&prodi.FakultasName,
+		&prodi.CreatedAt,
+	)
+	if err != nil {
+		return prodi, err
+	}
+
+	return prodi, nil
+}
+
+func (p *ProdiRepository) InsertProdi(prodiName string, fakultasName string) error {
+	sqlStatement := `INSERT INTO program_studi (prodi_name, fakultas_id)
+	VALUES (?, (SELECT id FROM fakultas WHERE fakultas_name = ?))`
+
+	_, err := p.db.Exec(sqlStatement, prodiName, fakultasName)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
