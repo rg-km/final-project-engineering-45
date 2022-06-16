@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+.FakultasSection {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	color: black;
+	padding: 0;
+	margin: 0;
+}
+
+.heading {
+	text-align: center;
+	padding: 50px 50px 20px;
+	font-family: "Poppins", sans-serif;
+}
+
+.MenuFakultas {
+}
+
+.MenuFakultas-list {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.fakultas-list {
+	width: 50px;
+	margin: 20px;
+	flex-basis: 25%;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+}
+
+.fakultas-list:hover {
+	box-shadow: 10px 10px 20px #06CDFF;
+	transition: 0.5s;
+}
+
+.link-text {
+	display: flex;
+	flex-direction: column;
+	padding: 20px 10px;
+	background-color: #FFCDCD;
+}
+
+.header {
+	text-align: center;
+	padding: 50px;
+	background-color: #06CDFF;
+	color: white;
+	font-family: "Poppins", sans-serif;
+}
+
+.fak-links {
+	color: black;
+	padding-bottom: 10px;
+	text-decoration: none;
+	font-family: "Poppins", sans-serif;
+	font-weight: 600;
+}
+
+.more-content {
+	text-decoration: none;
+	color: #0C21C1;
+}
+
+.more-content:hover {
+	font-weight: 600;
+	transition: 0.5s;
+}
+
+.btn-see-more {
+	text-align: center;
+	padding: 50px;
+}
