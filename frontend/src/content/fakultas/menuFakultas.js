@@ -6,7 +6,7 @@ export const MenuFakultas = [
     },
     {
         title: 'Fakultas Ekonomi & Bisnis',
-        url: 'ekonomi&bisnis',
+        url: '/fakultas/ekonomi&bisnis',
         cName: 'fak-links'
     },
     {
