@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
+import {Outlet, Link} from 'react-router-dom';
 import Navbar from '../../component/navbar/navbar';
 import Footer from '../../component/footer/footer';
 import Button from '../../component/button/button';
@@ -42,6 +42,7 @@ const Fakultas = () => {
                 </div>
             </div>
             <Footer />
+            <Outlet />
         </div>
     );
 };
