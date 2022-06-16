@@ -1,0 +1,74 @@
+.formInput{
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+}
+    
+
+input{
+    padding: 15px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    border:unset;
+}
+
+
+label{
+    font-size: 12px;
+    color: gray;
+}
+
+span{
+    font-size: 12px;
+    padding: 3px;
+    color: red;
+    display: none;
+}
+
+#s {
+    position: absolute;
+    width: 429px;
+    height: 53px;
+    left: 781px;
+    top: 580px;
+    color: rgb(255, 255, 255);
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    /* identical to box height */
+    
+}
+
+#bg{
+    position: absolute;
+    width: 735px;
+    height: 800px;
+    left: 683px;
+    top: 21px;
+    background: #000842;
+    border-radius: 15px;
+  
+  }
+
+#l {
+    position: absolute;
+    width: 429px;
+    height: 53px;
+    left: 781px;
+    top: 620px;
+    color: rgb(255, 255, 255);
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    /* identical to box height */
+}
+
+input:invalid[focused="true"]{
+    border: 1px solid red;
+}
+
+input:invalid[focused="true"] ~ span{
+    display: block;
+}
