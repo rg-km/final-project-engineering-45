@@ -3,6 +3,7 @@ package api
 import (
 	"encoding/json"
 	"net/http"
+	"strings"
 	"time"
 
 	"github.com/rg-km/final-project-engineering-45/backend/repository"
@@ -13,8 +14,8 @@ type ProdiListErrorResponse struct {
 }
 
 type AddToProdiRequest struct {
-	ProdiName  string `json:"prodi_name"`
-	FakultasID int64  `json:"fakultas_ID"`
+	ProdiName    string `json:"prodi_name"`
+	FakultasName string `json:"fakultas_name"`
 }
 
 type AddToProdiSuccessResponse struct {
@@ -65,6 +66,41 @@ func (api *API) prodiList(w http.ResponseWriter, r *http.Request) {
 	encoder.Encode(response)
 }
 
+func (api *API) prodiListByName(w http.ResponseWriter, r *http.Request) {
+	api.AllowOrigin(w, r)
+	encoder := json.NewEncoder(w)
+
+	prodiName := r.URL.Query().Get("prodi_name")
+	prodiName = strings.Replace(prodiName, "%20", " ", -1)
+
+	prodi, err := api.prodiRepo.FetchProdiByName(prodiName)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		encoder.Encode(FakultasListErrorResponse{Error: err.Error()})
+		return
+	}
+
+	response := ProdiListSuccessResponse{}
+	response.Prodi = make([]Prodi, 0)
+
+	response.Prodi = append(response.Prodi, Prodi{
+		ID:           prodi.ID,
+		ProdiName:    prodi.ProdiName,
+		FakultasID:   prodi.FakultasID,
+		FakultasName: prodi.FakultasName,
+		CreatedAt:    prodi.CreatedAt,
+	})
+
+	if prodi.ID == 0 {
+		w.WriteHeader(http.StatusNotFound)
+		encoder.Encode(FakultasListErrorResponse{Error: "Fakultas not found"})
+		return
+	}
+
+	encoder.Encode(response)
+	w.WriteHeader(http.StatusOK)
+}
+
 // func (api *API) addProdi(w http.ResponseWriter, r *http.Request) {
 // 	api.AllowOrigin(w, r)
 // 	encoder := json.NewEncoder(w)
@@ -87,56 +123,56 @@ func (api *API) prodiList(w http.ResponseWriter, r *http.Request) {
 // 	encoder.Encode(ProdiListSuccessResponse{Prodi: []Prodi{prodi}})
 // }
 
-// func (api *API) addProdi(w http.ResponseWriter, r *http.Request) {
-// 	api.AllowOrigin(w, r)
+func (api *API) addProdi(w http.ResponseWriter, r *http.Request) {
+	api.AllowOrigin(w, r)
 
-// 	var request AddToProdiRequest
-// 	err := json.NewDecoder(r.Body).Decode(&request)
-// 	if err != nil {
-// 		w.WriteHeader(http.StatusBadRequest)
-// 		return
-// 	}
+	var request AddToProdiRequest
+	err := json.NewDecoder(r.Body).Decode(&request)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
 
-// 	encoder := json.NewEncoder(w)
+	encoder := json.NewEncoder(w)
 
-// 	response := AddToProdiSuccessResponse{}
-// 	response.Prodi = make([]repository.ProgramStudi, 0)
+	response := AddToProdiSuccessResponse{}
+	response.Prodi = make([]repository.ProgramStudi, 0)
 
-// 	prodi, err := api.prodiRepo.FetchProdiByName(request.ProdiName)
-// 	if err != nil {
-// 		w.WriteHeader(http.StatusBadRequest)
-// 		encoder.Encode(ProdiListErrorResponse{Error: err.Error()})
-// 		return
-// 	}
+	prodi, err := api.prodiRepo.FetchProdiByName(request.ProdiName)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		encoder.Encode(ProdiListErrorResponse{Error: err.Error()})
+		return
+	}
 
-// 	if prodi.ProdiName == request.ProdiName {
-// 		w.WriteHeader(http.StatusBadRequest)
-// 		encoder.Encode(ProdiListErrorResponse{Error: "Prodi already exists"})
-// 		return
-// 	} else {
-// 		err = api.prodiRepo.InsertProdi(request.ProdiName, request.FakultasID)
-// 		if err != nil {
-// 			w.WriteHeader(http.StatusBadRequest)
-// 			return
-// 		}
-// 	}
+	if prodi.ProdiName == request.ProdiName {
+		w.WriteHeader(http.StatusBadRequest)
+		encoder.Encode(ProdiListErrorResponse{Error: "Prodi already exists"})
+		return
+	} else {
+		err = api.prodiRepo.InsertProdi(request.ProdiName, request.FakultasName)
+		if err != nil {
+			w.WriteHeader(http.StatusBadRequest)
+			return
+		}
+	}
 
-// 	fakultas, err := api.fakultasRepo.FetchFakultasByID(request.FakultasID)
-// 	if err != nil {
-// 		w.WriteHeader(http.StatusBadRequest)
-// 		encoder.Encode(ProdiListErrorResponse{Error: err.Error()})
-// 		return
-// 	}
+	fakultas, err := api.fakultasRepo.FetchFakultasByName(request.FakultasName)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		encoder.Encode(ProdiListErrorResponse{Error: err.Error()})
+		return
+	}
 
-// 	if fakultas.ID == request.FakultasID {
-// 		w.WriteHeader(http.StatusOK)
-// 		encoder.Encode(response)
-// 	} else {
-// 		w.WriteHeader(http.StatusBadRequest)
-// 		encoder.Encode(ProdiListErrorResponse{Error: "Fakultas not found"})
-// 	}
+	if fakultas.FakultasName == request.FakultasName {
+		w.WriteHeader(http.StatusOK)
+		encoder.Encode(response)
+	} else {
+		w.WriteHeader(http.StatusBadRequest)
+		encoder.Encode(ProdiListErrorResponse{Error: "Fakultas not found"})
+	}
 
-// 	w.WriteHeader(http.StatusOK)
-// 	encoder.Encode(AddToProdiSuccessResponse{Prodi: []repository.ProgramStudi{prodi}})
-// 	w.Write([]byte("Prodi added"))
-// }
+	w.WriteHeader(http.StatusOK)
+	encoder.Encode(AddToProdiSuccessResponse{Prodi: []repository.ProgramStudi{prodi}})
+	w.Write([]byte("Prodi added"))
+}

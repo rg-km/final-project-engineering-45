@@ -110,8 +110,8 @@ func (p *ProdiRepository) FetchProdiByID(id int64) (ProgramStudi, error) {
 }
 
 func (p *ProdiRepository) InsertProdi(prodiName string, fakultasName string) error {
-	sqlStatement := `INSERT INTO program_studi (prodi_name, fakultas_id)
-	VALUES (?, (SELECT id FROM fakultas WHERE fakultas_name = ?))`
+	sqlStatement := `INSERT INTO program_studi (prodi_name, fakultas_id, created_at)
+	VALUES (?, (SELECT id FROM fakultas WHERE fakultas_name = ?), CURRENT_TIMESTAMP)`
 
 	_, err := p.db.Exec(sqlStatement, prodiName, fakultasName)
 	if err != nil {
