@@ -109,6 +109,73 @@ func (p *ProdiRepository) FetchProdiByID(id int64) (ProgramStudi, error) {
 	return prodi, nil
 }
 
+func (p *ProdiRepository) FetchProdiByFakultasName(fakultasName string) ([]ProgramStudi, error) {
+	var prodi []ProgramStudi
+
+	sqlStatement := `SELECT 
+	prodi.id,
+	prodi.prodi_name,
+	prodi.fakultas_id,
+	fakultas.fakultas_name,
+	prodi.created_at
+	FROM program_studi prodi
+	INNER JOIN fakultas ON prodi.fakultas_id = fakultas.id
+	WHERE fakultas.fakultas_name = ?`
+
+	rows, err := p.db.Query(sqlStatement, fakultasName)
+	if err != nil {
+		return prodi, err
+	}
+
+	for rows.Next() {
+		var prodiRow ProgramStudi
+		err = rows.Scan(
+			&prodiRow.ID,
+			&prodiRow.ProdiName,
+			&prodiRow.FakultasID,
+			&prodiRow.FakultasName,
+			&prodiRow.CreatedAt,
+		)
+
+		if err != nil {
+			return prodi, err
+		}
+
+		prodi = append(prodi, prodiRow)
+	}
+
+	return prodi, nil
+}
+
+func (p *ProdiRepository) FetchProdiAndFakultasName(fakultasName string, prodiName string) (ProgramStudi, error) {
+	var prodi ProgramStudi
+
+	sqlStatement := `SELECT
+	prodi.id,
+	prodi.prodi_name,
+	prodi.fakultas_id,
+	fakultas.fakultas_name,
+	prodi.created_at
+	FROM program_studi prodi
+	INNER JOIN fakultas ON prodi.fakultas_id = fakultas.id
+	WHERE fakultas.fakultas_name = ? AND prodi.prodi_name = ?`
+
+	rows := p.db.QueryRow(sqlStatement, fakultasName, prodiName)
+	err := rows.Scan(
+		&prodi.ID,
+		&prodi.ProdiName,
+		&prodi.FakultasID,
+		&prodi.FakultasName,
+		&prodi.CreatedAt,
+	)
+
+	if err != nil {
+		return prodi, err
+	}
+
+	return prodi, nil
+}
+
 func (p *ProdiRepository) InsertProdi(prodiName string, fakultasName string) error {
 	sqlStatement := `INSERT INTO program_studi (prodi_name, fakultas_id, created_at)
 	VALUES (?, (SELECT id FROM fakultas WHERE fakultas_name = ?), CURRENT_TIMESTAMP)`
