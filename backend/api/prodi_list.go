@@ -66,17 +66,20 @@ func (api *API) prodiList(w http.ResponseWriter, r *http.Request) {
 	encoder.Encode(response)
 }
 
-func (api *API) prodiListByName(w http.ResponseWriter, r *http.Request) {
+func (api *API) selectProdi(w http.ResponseWriter, r *http.Request) {
 	api.AllowOrigin(w, r)
 	encoder := json.NewEncoder(w)
 
 	prodiName := r.URL.Query().Get("prodi_name")
 	prodiName = strings.Replace(prodiName, "%20", " ", -1)
 
-	prodi, err := api.prodiRepo.FetchProdiByName(prodiName)
+	fakultasName := r.URL.Query().Get("fakultas_name")
+	fakultasName = strings.Replace(fakultasName, "%20", " ", -1)
+
+	prodi, err := api.prodiRepo.FetchProdiAndFakultasName(fakultasName, prodiName)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
-		encoder.Encode(FakultasListErrorResponse{Error: err.Error()})
+		encoder.Encode(ProdiListErrorResponse{Error: err.Error()})
 		return
 	}
 
@@ -93,8 +96,53 @@ func (api *API) prodiListByName(w http.ResponseWriter, r *http.Request) {
 
 	if prodi.ID == 0 {
 		w.WriteHeader(http.StatusNotFound)
-		encoder.Encode(FakultasListErrorResponse{Error: "Fakultas not found"})
+		encoder.Encode(ProdiListErrorResponse{Error: "Data not found"})
 		return
+	} else if prodi.ProdiName != prodiName {
+		w.WriteHeader(http.StatusNotFound)
+		encoder.Encode(ProdiListErrorResponse{Error: "Program Studi not found"})
+		return
+	} else if prodi.FakultasName != fakultasName {
+		w.WriteHeader(http.StatusNotFound)
+		encoder.Encode(ProdiListErrorResponse{Error: "Fakultas not found"})
+		return
+	}
+
+	encoder.Encode(response)
+	w.WriteHeader(http.StatusOK)
+}
+
+func (api *API) prodiListByFakultasName(w http.ResponseWriter, r *http.Request) {
+	api.AllowOrigin(w, r)
+	encoder := json.NewEncoder(w)
+
+	fakultasName := r.URL.Query().Get("fakultas_name")
+	fakultasName = strings.Replace(fakultasName, "%20", " ", -1)
+
+	prodi, err := api.prodiRepo.FetchProdiByFakultasName(fakultasName)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		encoder.Encode(ProdiListErrorResponse{Error: err.Error()})
+		return
+	}
+
+	response := ProdiListSuccessResponse{}
+	response.Prodi = make([]Prodi, 0)
+
+	//loop prodi
+	for _, prodi := range prodi {
+		response.Prodi = append(response.Prodi, Prodi{
+			ID:           prodi.ID,
+			ProdiName:    prodi.ProdiName,
+			FakultasID:   prodi.FakultasID,
+			FakultasName: prodi.FakultasName,
+			CreatedAt:    prodi.CreatedAt,
+		})
+		if prodi.ID == 0 {
+			w.WriteHeader(http.StatusNotFound)
+			encoder.Encode(ProdiListErrorResponse{Error: "Program Studi not found"})
+			return
+		}
 	}
 
 	encoder.Encode(response)
