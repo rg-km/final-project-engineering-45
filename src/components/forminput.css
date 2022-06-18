@@ -2,19 +2,22 @@
     display: flex;
     flex-direction: column;
     width: 280px;
+    height: fit-content;
+    top: auto;
+    align-content: center;
 }
-    
 
 input{
     padding: 15px;
     margin: 10px 0px;
     border-radius: 5px;
     border:unset;
+    font-size: 16px;
 }
 
 
 label{
-    font-size: 12px;
+    font-size: 16px;
     color: gray;
 }
 
@@ -35,9 +38,24 @@ span{
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
-    font-size: 30px;
-    /* identical to box height */
+    font-size: 45px;
+  
     
+}
+
+#if {
+    position: absolute;
+    width: 308px;
+    height: 24px;
+    left: 124px;
+    top: 217px;
+    
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
 }
 
 #bg{
@@ -55,8 +73,8 @@ span{
     position: absolute;
     width: 429px;
     height: 53px;
-    left: 781px;
-    top: 620px;
+    left: 785px;
+    top: 640px;
     color: rgb(255, 255, 255);
     font-family: 'Poppins';
     font-style: normal;
@@ -64,6 +82,48 @@ span{
     font-size: 20px;
     /* identical to box height */
 }
+
+.saly{
+    position: absolute;
+    width: 429px;
+    height: 53px;
+    left: 810px;
+    top: 10px;
+}
+#reg{
+    position: absolute;
+    width: 308px;
+    height: 24px;
+    left: 124px;
+    top: 240px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+}
+
+.or {
+    position: absolute;
+    color:gray;
+    width: 429px;
+    height: 153px;
+    left: 275px;
+    top: 680px;
+}
+
+#r {
+   
+}
+
+.medsos {
+    position: absolute;
+    width: 429px;
+    height: 153px;
+    left: 270px;
+    top: 750px;
+}
+
 
 input:invalid[focused="true"]{
     border: 1px solid red;

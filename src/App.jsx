@@ -6,7 +6,6 @@ const App = () => {
   const [values, setValues] = useState({
     username: "",
     email: "",
-    birthday: "",
     password: "",
     confirmPassword: "",
   });
@@ -17,7 +16,7 @@ const App = () => {
       id: 1,
       name: "email",
       type: "email",
-      placeholder: "Email",
+      placeholder: "Enter Your Email",
       errorMessage: "It should be a valid email address!",
       label: "Email",
       required: true,
@@ -27,7 +26,7 @@ const App = () => {
       id: 2,
       name: "password",
       type: "password",
-      placeholder: "Password",
+      placeholder: "Enter Your Password",
       errorMessage:
         "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!",
       label: "Password",
@@ -56,9 +55,10 @@ const App = () => {
             onChange={onChange}
           />
         ))}
-        <button>Login</button>
+        <button>Submit</button>
       </form>
     </div>
+    
   );
 };
 
