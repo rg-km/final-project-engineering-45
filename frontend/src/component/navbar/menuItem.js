@@ -13,10 +13,5 @@ export const MenuItems = [
         title: 'Panduan',
         url: '/panduan',
         cName: 'nav-links'
-    },
-    {
-        title: 'Contact Us',
-        url: '/contact',
-        cName: 'nav-links'
     }
 ]
