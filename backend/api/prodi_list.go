@@ -2,11 +2,10 @@ package api
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"strings"
 	"time"
-
-	"github.com/rg-km/final-project-engineering-45/backend/repository"
 )
 
 type ProdiListErrorResponse struct {
@@ -16,10 +15,6 @@ type ProdiListErrorResponse struct {
 type AddToProdiRequest struct {
 	ProdiName    string `json:"prodi_name"`
 	FakultasName string `json:"fakultas_name"`
-}
-
-type AddToProdiSuccessResponse struct {
-	Prodi []repository.ProgramStudi `json:"program_studi"`
 }
 
 type Prodi struct {
@@ -149,28 +144,6 @@ func (api *API) prodiListByFakultasName(w http.ResponseWriter, r *http.Request) 
 	w.WriteHeader(http.StatusOK)
 }
 
-// func (api *API) addProdi(w http.ResponseWriter, r *http.Request) {
-// 	api.AllowOrigin(w, r)
-// 	encoder := json.NewEncoder(w)
-
-// 	var prodi Prodi
-// 	err := json.NewDecoder(r.Body).Decode(&prodi)
-// 	if err != nil {
-// 		w.WriteHeader(http.StatusBadRequest)
-// 		encoder.Encode(ProdiListErrorResponse{Error: err.Error()})
-// 		return
-// 	}
-
-// 	err = api.prodiRepo.InsertProdi(prodi.ProdiName, prodi.FakultasName, time.Now())
-// 	if err != nil {
-// 		w.WriteHeader(http.StatusBadRequest)
-// 		return
-// 	}
-
-// 	w.WriteHeader(http.StatusOK)
-// 	encoder.Encode(ProdiListSuccessResponse{Prodi: []Prodi{prodi}})
-// }
-
 func (api *API) addProdi(w http.ResponseWriter, r *http.Request) {
 	api.AllowOrigin(w, r)
 
@@ -183,44 +156,32 @@ func (api *API) addProdi(w http.ResponseWriter, r *http.Request) {
 
 	encoder := json.NewEncoder(w)
 
-	response := AddToProdiSuccessResponse{}
-	response.Prodi = make([]repository.ProgramStudi, 0)
-
-	prodi, err := api.prodiRepo.FetchProdiByName(request.ProdiName)
-	if err != nil {
-		w.WriteHeader(http.StatusBadRequest)
-		encoder.Encode(ProdiListErrorResponse{Error: err.Error()})
-		return
-	}
+	prodi, _ := api.prodiRepo.FetchProdiByName(request.ProdiName)
 
 	if prodi.ProdiName == request.ProdiName {
 		w.WriteHeader(http.StatusBadRequest)
 		encoder.Encode(ProdiListErrorResponse{Error: "Prodi already exists"})
 		return
-	} else {
-		err = api.prodiRepo.InsertProdi(request.ProdiName, request.FakultasName)
-		if err != nil {
+	} else if prodi.ProdiName != request.ProdiName {
+		fakultas, _ := api.fakultasRepo.FetchFakultasByName(request.FakultasName)
+
+		if fakultas.FakultasName != request.FakultasName {
 			w.WriteHeader(http.StatusBadRequest)
+			encoder.Encode(ProdiListErrorResponse{Error: "Fakultas not found"})
 			return
+		} else if fakultas.FakultasName == request.FakultasName {
+			w.WriteHeader(http.StatusOK)
+			//encoder.Encode(response)
+			err = api.prodiRepo.InsertProdi(request.ProdiName, request.FakultasName)
+			if err != nil {
+				w.WriteHeader(http.StatusBadRequest)
+				encoder.Encode(ProdiListErrorResponse{Error: err.Error()})
+				return
+			}
 		}
 	}
 
-	fakultas, err := api.fakultasRepo.FetchFakultasByName(request.FakultasName)
-	if err != nil {
-		w.WriteHeader(http.StatusBadRequest)
-		encoder.Encode(ProdiListErrorResponse{Error: err.Error()})
-		return
-	}
-
-	if fakultas.FakultasName == request.FakultasName {
-		w.WriteHeader(http.StatusOK)
-		encoder.Encode(response)
-	} else {
-		w.WriteHeader(http.StatusBadRequest)
-		encoder.Encode(ProdiListErrorResponse{Error: "Fakultas not found"})
-	}
-
 	w.WriteHeader(http.StatusOK)
-	encoder.Encode(AddToProdiSuccessResponse{Prodi: []repository.ProgramStudi{prodi}})
-	w.Write([]byte("Prodi added"))
+	//w.Write([]byte("New Program Studi has been added"))
+	fmt.Fprintf(w, "Program Studi %s has been added", request.ProdiName)
 }

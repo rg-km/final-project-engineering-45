@@ -52,7 +52,6 @@ func (api *API) fakultasList(w http.ResponseWriter, r *http.Request) {
 	//fmt.Println(response)
 }
 
-//make param func to get fakultas by name
 func (api *API) fakultasListByName(w http.ResponseWriter, r *http.Request) {
 	api.AllowOrigin(w, r)
 	encoder := json.NewEncoder(w)
