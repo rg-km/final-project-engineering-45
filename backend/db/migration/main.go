@@ -57,9 +57,9 @@ func main() {
 
 	CREATE TABLE IF NOT EXISTS program_studi (
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
-		prodi_name VARCHAR(64),
-		fakultas_id INTEGER,
-		created_at DATETIME,
+		prodi_name VARCHAR(64) NOT NULL,
+		fakultas_id INTEGER NOT NULL,
+		created_at DATETIME NOT NULL,
 		FOREIGN KEY (fakultas_id) REFERENCES fakultas(id)
 	);
 	
