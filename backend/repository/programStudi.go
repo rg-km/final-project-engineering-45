@@ -177,10 +177,15 @@ func (p *ProdiRepository) FetchProdiAndFakultasName(fakultasName string, prodiNa
 }
 
 func (p *ProdiRepository) InsertProdi(prodiName string, fakultasName string) error {
-	sqlStatement := `INSERT INTO program_studi (prodi_name, fakultas_id, created_at)
-	VALUES (?, (SELECT id FROM fakultas WHERE fakultas_name = ?), CURRENT_TIMESTAMP)`
+	sqlStatement := `INSERT INTO program_studi (id, prodi_name, fakultas_id, created_at) 
+	VALUES (
+		(SELECT id FROM program_studi WHERE fakultas_id = (SELECT id FROM fakultas WHERE fakultas_name = ?) ORDER BY id DESC LIMIT 1) + 1, 
+		?, 
+		(SELECT id FROM fakultas WHERE fakultas_name = ?), 
+		CURRENT_TIMESTAMP
+	)`
 
-	_, err := p.db.Exec(sqlStatement, prodiName, fakultasName)
+	_, err := p.db.Exec(sqlStatement, fakultasName, prodiName, fakultasName)
 	if err != nil {
 		return err
 	}
