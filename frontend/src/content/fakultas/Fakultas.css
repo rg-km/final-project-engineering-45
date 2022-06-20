@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap");
+
+.container-fakultas {
+	text-align: center;
+	padding: 20px;
+	font-family: Poppins, sans-serif;
+}
+
+.fakultas-container {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-evenly;
+	padding: 50px 0px;
+}
+
+.fakultas-list {
+	flex-basis: 25%;
+	margin: 10px;
+	border-radius: 20px;
+	font-family: Poppins, sans-serif;
+}
+.fakultas-list:hover {
+	box-shadow: 10px 10px 20px #06cdff;
+	transition: 0.5s;
+}
+
+.header-list {
+	text-align: center;
+	padding: 70px;
+	color: white;
+	background-color: #6774d8;
+	border-radius: 20px 20px 0px 0px;
+}
+
+.header-and-link {
+	padding: 10px;
+	background-color: #ffcdcd;
+	height: 80px;
+	border-radius: 0px 0px 20px 20px;
+}
+
+.the-header {
+	font-size: 1.2rem;
+}
+
+.the-link {
+	text-decoration: none;
+}
+.the-link:hover {
+	color: #6774d8;
+	font-weight: 600;
+}
+
+/*loader*/
+.loading {
+	text-align: center;
+	padding: 100px;
+}
+.loader {
+	text-align: center;
+	width: 48px;
+	height: 48px;
+	border: 5px solid #6774d8;
+	border-bottom-color: #ff3d00;
+	border-radius: 50%;
+	display: inline-block;
+	box-sizing: border-box;
+	animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
