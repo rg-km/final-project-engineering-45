@@ -1,7 +1,8 @@
 # final-project-engineering-45
 
 ## Available APIs
-Running on `http://localhost:8080/
+
+Running on `http://localhost:8080/`
 
 - `POST` : `/api/user/login`
 - `POST` : `/api/user/logout`
