@@ -13,8 +13,13 @@ type ProdiListErrorResponse struct {
 }
 
 type AddToProdiRequest struct {
-	ProdiName    string `json:"prodi_name"`
-	FakultasName string `json:"fakultas_name"`
+	ProdiName    string    `json:"prodi_name"`
+	FakultasName string    `json:"fakultas_name"`
+	Deskripsi    string    `json:"deskripsi"`
+	Karakter     string    `json:"karakter"`
+	MataKuliah   string    `json:"mata_kuliah"`
+	Prospek      string    `json:"prospek"`
+	CreatedAt    time.Time `json:"created_at"`
 }
 
 type Prodi struct {
@@ -22,6 +27,10 @@ type Prodi struct {
 	ProdiName    string    `json:"prodi_name"`
 	FakultasID   int64     `json:"fakultas_id"`
 	FakultasName string    `json:"fakultas_name"`
+	Deskripsi    string    `json:"deskripsi"`
+	Karakter     string    `json:"karakter"`
+	MataKuliah   string    `json:"mata_kuliah"`
+	Prospek      string    `json:"prospek"`
 	CreatedAt    time.Time `json:"created_at"`
 }
 
@@ -54,6 +63,10 @@ func (api *API) prodiList(w http.ResponseWriter, r *http.Request) {
 			ProdiName:    prodi.ProdiName,
 			FakultasID:   prodi.FakultasID,
 			FakultasName: prodi.FakultasName,
+			Deskripsi:    prodi.Deskripsi,
+			Karakter:     prodi.Karakter,
+			MataKuliah:   prodi.MataKuliah,
+			Prospek:      prodi.Prospek,
 			CreatedAt:    prodi.CreatedAt,
 		})
 	}
@@ -86,6 +99,10 @@ func (api *API) selectProdi(w http.ResponseWriter, r *http.Request) {
 		ProdiName:    prodi.ProdiName,
 		FakultasID:   prodi.FakultasID,
 		FakultasName: prodi.FakultasName,
+		Deskripsi:    prodi.Deskripsi,
+		Karakter:     prodi.Karakter,
+		MataKuliah:   prodi.MataKuliah,
+		Prospek:      prodi.Prospek,
 		CreatedAt:    prodi.CreatedAt,
 	})
 
@@ -131,6 +148,10 @@ func (api *API) prodiListByFakultasName(w http.ResponseWriter, r *http.Request) 
 			ProdiName:    prodi.ProdiName,
 			FakultasID:   prodi.FakultasID,
 			FakultasName: prodi.FakultasName,
+			Deskripsi:    prodi.Deskripsi,
+			Karakter:     prodi.Karakter,
+			MataKuliah:   prodi.MataKuliah,
+			Prospek:      prodi.Prospek,
 			CreatedAt:    prodi.CreatedAt,
 		})
 		if prodi.ID == 0 {
@@ -172,7 +193,7 @@ func (api *API) addProdi(w http.ResponseWriter, r *http.Request) {
 		} else if fakultas.FakultasName == request.FakultasName {
 			w.WriteHeader(http.StatusOK)
 			//encoder.Encode(response)
-			err = api.prodiRepo.InsertProdi(request.ProdiName, request.FakultasName)
+			err = api.prodiRepo.InsertProdi(request.ProdiName, request.FakultasName, request.Deskripsi, request.Karakter, request.MataKuliah, request.Prospek)
 			if err != nil {
 				w.WriteHeader(http.StatusBadRequest)
 				encoder.Encode(ProdiListErrorResponse{Error: err.Error()})
