@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap");
+
+.hero-section-prodiDetail {
+	height: 500px;
+	color: white;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-family: Poppins, sans-serif;
+}
+
+.head-hero {
+	font-size: 5rem;
+}
+.text-hero {
+	font-size: 1.5rem;
+}
+
+/*deskripsi*/
+.deskripsi {
+	height: 500px;
+	background-color: #0918CC;
+	color: white;
+	font-family: Poppins, sans-serif;
+	text-align: justify;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.header-deskripsi {
+	font-size: 3rem;
+	padding-bottom: 20px;
+}
+.text-deskripsi {
+	font-size: 1.5rem;
+	padding: 0px 100px;
+}
+
+/*karakter*/
+.karakter {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+	height: 500px;
+	padding: 50px 100px;
+}
+
+.text-section {
+	flex-basis: 50%;
+	padding-right: 20px;
+}
+.image-section {
+	flex-basis: 50%;
+	padding-left: 20px;
+}
+.image-karakter {
+	width: 90%;
+}
+.header-karakter {
+	font-size: 3rem;
+}
+.text-karakter {
+	font-size: 1.5rem;
+}
+
+/*matakuliah dan prospek kerja*/
+.box-konten {
+	height: 500px;
+	font-family: Poppins, sans-serif;
+	text-align: justify;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.header-matakuliah {
+	font-size: 3rem;
+}
+.text-matakuliah {
+	font-size: 1.5rem;
+	padding: 50px;
+	margin: 50px;
+	background-color: #FFCDCD;
+	border-radius: 20px;
+}
+.header-prospek {
+	font-size: 3rem;
+}
+.text-prospek {
+	font-size: 1.5rem;
+	padding: 50px;
+	margin: 50px;
+	background-color: #FFCDCD;
+	border-radius: 20px;
+}
+
+/*loader*/
+.loading {
+	text-align: center;
+	padding: 100px;
+}
+.loader {
+	text-align: center;
+	width: 48px;
+	height: 48px;
+	border: 5px solid #6774d8;
+	border-bottom-color: #ff3d00;
+	border-radius: 50%;
+	display: inline-block;
+	box-sizing: border-box;
+	animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
