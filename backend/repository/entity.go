@@ -25,4 +25,8 @@ type ProgramStudi struct {
 	FakultasID   int64     `db:"fakultas_id"`
 	FakultasName string    `db:"fakultas_name"`
 	CreatedAt    time.Time `db:"created_at"`
+	Deskripsi    string    `db:"deskripsi"`
+	Karakter     string    `db:"karakter"`
+	MataKuliah   string    `db:"mata_kuliah"`
+	Prospek      string    `db:"prospek"`
 }

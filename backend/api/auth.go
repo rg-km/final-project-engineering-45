@@ -82,6 +82,8 @@ func (api *API) login(w http.ResponseWriter, req *http.Request) {
 		Value:   tokenString,
 		Expires: expirationTime,
 		Path:    "/",
+		// SameSite: http.SameSiteNoneMode,
+		// Secure:   true,
 	})
 
 	json.NewEncoder(w).Encode(LoginSuccessResponse{Username: *res, Token: tokenString})
