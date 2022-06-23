@@ -74,6 +74,39 @@ func (api *API) prodiList(w http.ResponseWriter, r *http.Request) {
 	encoder.Encode(response)
 }
 
+func (api *API) selectProdiByName(w http.ResponseWriter, r *http.Request) {
+	api.AllowOrigin(w, r)
+	encoder := json.NewEncoder(w)
+
+	prodiName := r.URL.Query().Get("prodi_name")
+	prodiName = strings.Replace(prodiName, "%20", " ", -1)
+
+	prodi, err := api.prodiRepo.FetchProdiByName(prodiName)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		encoder.Encode(ProdiListErrorResponse{Error: err.Error()})
+		return
+	}
+
+	response := ProdiListSuccessResponse{}
+	response.Prodi = make([]Prodi, 0)
+
+	//dont need to loop prodi
+	response.Prodi = append(response.Prodi, Prodi{
+		ID:           prodi.ID,
+		ProdiName:    prodi.ProdiName,
+		FakultasID:   prodi.FakultasID,
+		FakultasName: prodi.FakultasName,
+		Deskripsi:    prodi.Deskripsi,
+		Karakter:     prodi.Karakter,
+		MataKuliah:   prodi.MataKuliah,
+		Prospek:      prodi.Prospek,
+		CreatedAt:    prodi.CreatedAt,
+	})
+
+	encoder.Encode(response)
+}
+
 func (api *API) selectProdi(w http.ResponseWriter, r *http.Request) {
 	api.AllowOrigin(w, r)
 	encoder := json.NewEncoder(w)
