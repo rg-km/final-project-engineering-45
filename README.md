@@ -10,3 +10,4 @@ Running on `http://localhost:8080/`
 - `GET` : `/api/fakultas/list`
 - `GET` : `/api/prodi?fakultas_name=<fakultas_name>`
 - `GET` : `/api/select_prodi?fakultas_name=<fakultas_name>&prodi_name=<prodi_name>`
+- `POST` : `/api/prodi/add`
