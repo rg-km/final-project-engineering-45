@@ -50,7 +50,7 @@ const Prodi = () => {
                                     <h2 className="the-header">
                                         {item.prodi_name}
                                     </h2>
-                                    <Link to='/selengkapnya' className="the-link">
+                                    <Link to={item.prodi_name} className="the-link">
                                         Lihat Selengkapnya
                                     </Link>
                                 </div>
