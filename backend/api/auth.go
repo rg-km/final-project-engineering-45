@@ -2,6 +2,7 @@ package api
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"time"
 
@@ -145,4 +146,5 @@ func (api *API) signup(w http.ResponseWriter, req *http.Request) {
 
 	w.WriteHeader(http.StatusOK)
 	w.Write([]byte("signup success"))
+	fmt.Fprintf(w, "\nWelcome %s!", user.Fullname)
 }
