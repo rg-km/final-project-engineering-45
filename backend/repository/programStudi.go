@@ -21,7 +21,11 @@ func (p *ProdiRepository) FetchProdiByName(prodiName string) (ProgramStudi, erro
 	prodi.prodi_name,
 	prodi.fakultas_id,
 	fakultas.fakultas_name,
-	prodi.created_at
+	prodi.created_at,
+	prodi.deskripsi,
+	prodi.karakter,
+	prodi.mata_kuliah,
+	prodi.prospek
 	FROM program_studi prodi
 	INNER JOIN fakultas ON prodi.fakultas_id = fakultas.id
 	WHERE prodi.prodi_name = ?`
@@ -34,6 +38,10 @@ func (p *ProdiRepository) FetchProdiByName(prodiName string) (ProgramStudi, erro
 		&prodi.FakultasID,
 		&prodi.FakultasName,
 		&prodi.CreatedAt,
+		&prodi.Deskripsi,
+		&prodi.Karakter,
+		&prodi.MataKuliah,
+		&prodi.Prospek,
 	)
 	if err != nil {
 		return prodi, err
@@ -52,7 +60,11 @@ func (p *ProdiRepository) FetchProdi() ([]ProgramStudi, error) {
 		prodi.prodi_name,
 		prodi.fakultas_id,
 		fakultas.fakultas_name,
-		prodi.created_at
+		prodi.created_at,
+		prodi.deskripsi,
+		prodi.karakter,
+		prodi.mata_kuliah,
+		prodi.prospek
 	FROM program_studi prodi
 	INNER JOIN fakultas ON prodi.fakultas_id = fakultas.id
 	`
@@ -69,6 +81,10 @@ func (p *ProdiRepository) FetchProdi() ([]ProgramStudi, error) {
 			&prodiRow.FakultasID,
 			&prodiRow.FakultasName,
 			&prodiRow.CreatedAt,
+			&prodiRow.Deskripsi,
+			&prodiRow.Karakter,
+			&prodiRow.MataKuliah,
+			&prodiRow.Prospek,
 		)
 		if err != nil {
 			return prodi, err
@@ -89,7 +105,11 @@ func (p *ProdiRepository) FetchProdiByID(id int64) (ProgramStudi, error) {
 	prodi.prodi_name,
 	prodi.fakultas_id,
 	fakultas.fakultas_name,
-	prodi.created_at
+	prodi.created_at,
+	prodi.deskripsi,
+	prodi.karakter,
+	prodi.mata_kuliah,
+	prodi.prospek
 	FROM program_studi prodi
 	INNER JOIN fakultas ON prodi.fakultas_id = fakultas.id
 	WHERE prodi.id = ?`
@@ -101,6 +121,10 @@ func (p *ProdiRepository) FetchProdiByID(id int64) (ProgramStudi, error) {
 		&prodi.FakultasID,
 		&prodi.FakultasName,
 		&prodi.CreatedAt,
+		&prodi.Deskripsi,
+		&prodi.Karakter,
+		&prodi.MataKuliah,
+		&prodi.Prospek,
 	)
 	if err != nil {
 		return prodi, err
@@ -117,7 +141,11 @@ func (p *ProdiRepository) FetchProdiByFakultasName(fakultasName string) ([]Progr
 	prodi.prodi_name,
 	prodi.fakultas_id,
 	fakultas.fakultas_name,
-	prodi.created_at
+	prodi.created_at,
+	prodi.deskripsi,
+	prodi.karakter,
+	prodi.mata_kuliah,
+	prodi.prospek
 	FROM program_studi prodi
 	INNER JOIN fakultas ON prodi.fakultas_id = fakultas.id
 	WHERE fakultas.fakultas_name = ?`
@@ -135,6 +163,10 @@ func (p *ProdiRepository) FetchProdiByFakultasName(fakultasName string) ([]Progr
 			&prodiRow.FakultasID,
 			&prodiRow.FakultasName,
 			&prodiRow.CreatedAt,
+			&prodiRow.Deskripsi,
+			&prodiRow.Karakter,
+			&prodiRow.MataKuliah,
+			&prodiRow.Prospek,
 		)
 
 		if err != nil {
@@ -155,7 +187,11 @@ func (p *ProdiRepository) FetchProdiAndFakultasName(fakultasName string, prodiNa
 	prodi.prodi_name,
 	prodi.fakultas_id,
 	fakultas.fakultas_name,
-	prodi.created_at
+	prodi.created_at,
+	prodi.deskripsi,
+	prodi.karakter,
+	prodi.mata_kuliah,
+	prodi.prospek
 	FROM program_studi prodi
 	INNER JOIN fakultas ON prodi.fakultas_id = fakultas.id
 	WHERE fakultas.fakultas_name = ? AND prodi.prodi_name = ?`
@@ -167,6 +203,10 @@ func (p *ProdiRepository) FetchProdiAndFakultasName(fakultasName string, prodiNa
 		&prodi.FakultasID,
 		&prodi.FakultasName,
 		&prodi.CreatedAt,
+		&prodi.Deskripsi,
+		&prodi.Karakter,
+		&prodi.MataKuliah,
+		&prodi.Prospek,
 	)
 
 	if err != nil {
@@ -176,16 +216,16 @@ func (p *ProdiRepository) FetchProdiAndFakultasName(fakultasName string, prodiNa
 	return prodi, nil
 }
 
-func (p *ProdiRepository) InsertProdi(prodiName string, fakultasName string) error {
-	sqlStatement := `INSERT INTO program_studi (id, prodi_name, fakultas_id, created_at) 
+func (p *ProdiRepository) InsertProdi(prodiName string, fakultasName string, deskripsi string, karakter string, mataKuliah string, prospek string) error {
+	sqlStatement := `INSERT INTO program_studi (id, prodi_name, fakultas_id, created_at, deskripsi, karakter, mata_kuliah, prospek) 
 	VALUES (
 		(SELECT id FROM program_studi WHERE fakultas_id = (SELECT id FROM fakultas WHERE fakultas_name = ?) ORDER BY id DESC LIMIT 1) + 1, 
 		?, 
 		(SELECT id FROM fakultas WHERE fakultas_name = ?), 
-		CURRENT_TIMESTAMP
+		CURRENT_TIMESTAMP, ?, ?, ?, ?
 	)`
 
-	_, err := p.db.Exec(sqlStatement, fakultasName, prodiName, fakultasName)
+	_, err := p.db.Exec(sqlStatement, fakultasName, prodiName, fakultasName, deskripsi, karakter, mataKuliah, prospek)
 	if err != nil {
 		return err
 	}
