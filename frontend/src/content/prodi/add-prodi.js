@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Navbar from "../../component/navbar/navbar";
 import Footer from '../../component/footer/footer';
+import "./add-prodi.css"
 
 const AddProdi = () => {
     // variable untuk menampung inputan dari form 
