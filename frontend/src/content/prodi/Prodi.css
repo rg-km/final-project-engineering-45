@@ -77,3 +77,12 @@
 		transform: rotate(360deg);
 	}
 }
+
+.fa-plus {
+	font-size: 3rem;
+	/*border: 1px solid black;*/
+	padding: 10px;
+	border-radius: 50%;
+	margin: 10px;
+	color: #6774d8;
+}

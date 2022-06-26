@@ -57,6 +57,9 @@ const Prodi = () => {
                             </div>
                         ))}
                     </div>
+                    <Link to="/create">
+                        <i className="fa-solid fa-plus"></i>
+                    </Link>
                 </div>
             )}
             <Footer />
