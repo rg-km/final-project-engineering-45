@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "../button/button";
 import { MenuItems } from "./menuItem";
 import { Link } from "react-router-dom";
@@ -18,7 +18,9 @@ const Navbar = () => {
                     </li>
                 ))}
             </ul>
-            <Button children='Sign Up' />
+            <Link to='/register'>
+                <Button children="Sign Up" />
+            </Link>
         </nav>
     )
 }
