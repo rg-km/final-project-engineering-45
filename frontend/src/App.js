@@ -6,12 +6,9 @@ import Fakultas from "./content/fakultas/Fakultas";
 import Prodi from "./content/prodi/Prodi";
 import ProdiDetail from "./content/prodiDetail/ProdiDetail";
 import Panduan from "./content/panduan/Panduan";
-<<<<<<< HEAD
 import Create from './content/crud/create/Create';
-=======
 import Login from './content/login-and-register/Login';
 import Register from './content/login-and-register/Register';
->>>>>>> main
 
 const App = () => {
 	return (
