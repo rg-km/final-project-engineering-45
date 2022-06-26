@@ -71,13 +71,10 @@ func (api *API) AuthMiddleWare(next http.Handler) http.Handler {
 			return
 		}
 
-		// match token request to token database
-		if c.Value == "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VybmFtZSI6ImFkbWluIiwiUm9sZSI6ImFkbWluIiwiZXhwIjoxNjU1OTY5OTU1fQ.ekcmkFu7jUWkQObe-Rs3TZFe8NrIyU4-4dTkegP56g8" || tkn.Valid {
-			ctx := context.WithValue(r.Context(), "username", claims.Username)
-			ctx = context.WithValue(ctx, "role", claims.Role)
-			ctx = context.WithValue(ctx, "props", claims)
-			next.ServeHTTP(w, r.WithContext(ctx))
-		}
+		ctx := context.WithValue(r.Context(), "username", claims.Username)
+		ctx = context.WithValue(ctx, "role", claims.Role)
+		ctx = context.WithValue(ctx, "props", claims)
+		next.ServeHTTP(w, r.WithContext(ctx))
 	})
 }
 
