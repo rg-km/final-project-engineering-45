@@ -34,7 +34,8 @@ func NewAPI(usersRepo repository.UserRepository, fakultasRepo repository.Fakulta
 	mux.Handle("/api/prodiName", api.GET(http.HandlerFunc(api.selectProdiByName)))
 	mux.Handle("/api/select_prodi", api.GET(http.HandlerFunc(api.selectProdi)))
 
-	mux.Handle("/api/prodi/add", api.POST(api.AdminMiddleware(http.HandlerFunc(api.addProdi))))
+	// mux.Handle("/api/prodi/add", api.POST(api.AdminMiddleware(http.HandlerFunc(api.addProdi))))
+	mux.Handle("/api/prodi/add", api.POST(http.HandlerFunc(api.addProdi)))
 	return api
 }
 

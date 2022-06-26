@@ -6,6 +6,7 @@ import Fakultas from "./content/fakultas/Fakultas";
 import Prodi from "./content/prodi/Prodi";
 import ProdiDetail from "./content/prodiDetail/ProdiDetail";
 import Panduan from "./content/panduan/Panduan";
+import Create from './content/crud/create/Create';
 
 const App = () => {
 	return (
@@ -22,6 +23,7 @@ const App = () => {
 			<Route path="panduan">
 				<Route index element={<Panduan />} />
 			</Route>
+			<Route path='/create' element={<Create/>} />
 		</Routes>
 	);
 };
