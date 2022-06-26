@@ -1,0 +1,478 @@
+{
+	"info": {
+		"_postman_id": "bb8ef143-987a-4650-89e2-dc0efe16bf96",
+		"name": "Final Project Group 45",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20870791"
+	},
+	"item": [
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"test\",\r\n    \"email\" : \"test@test.com\",\r\n    \"password\" : \"test\",\r\n    \"fullname\" : \"test signup\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "signup",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"test\",\r\n    \"email\" : \"test@test.com\",\r\n    \"password\" : \"test\",\r\n    \"fullname\" : \"test signup\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/user/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"signup"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:9000"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Jun 2022 09:14:20 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "14"
+						}
+					],
+					"cookie": [],
+					"body": "signup success"
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"test\",\r\n    \"email\" : \"test@test.com\",\r\n    \"password\" : \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"test\",\r\n    \"email\" : \"test@test.com\",\r\n    \"password\" : \"test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:9000"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VybmFtZSI6InRlc3QiLCJSb2xlIjoidXNlciIsImV4cCI6MTY1NTg5NDUxN30.cy8QBUOhyJnLdUBK4RuqpcwrAhyQM0OxzS7Or9EIgsI; Path=/; Expires=Wed, 22 Jun 2022 10:41:57 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Jun 2022 09:41:57 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "179"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"username\": \"test\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VybmFtZSI6InRlc3QiLCJSb2xlIjoidXNlciIsImV4cCI6MTY1NTg5NDUxN30.cy8QBUOhyJnLdUBK4RuqpcwrAhyQM0OxzS7Or9EIgsI\"\n}"
+				}
+			]
+		},
+		{
+			"name": "fakultas-list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/fakultas/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fakultas",
+						"list"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "fakultas-list",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/fakultas/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"fakultas",
+								"list"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:9000"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Jun 2022 19:55:42 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1662"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"fakultas\": [\n        {\n            \"id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T14:20:00Z\"\n        },\n        {\n            \"id\": 1002,\n            \"fakultas_name\": \"Fakultas Seni Rupa dan Desain\",\n            \"created_at\": \"2022-06-14T14:20:00Z\"\n        },\n        {\n            \"id\": 1003,\n            \"fakultas_name\": \"Fakultas Psikologi\",\n            \"created_at\": \"2022-06-14T14:20:00Z\"\n        },\n        {\n            \"id\": 1004,\n            \"fakultas_name\": \"Fakultas Peternakan dan Pertanian\",\n            \"created_at\": \"2022-06-14T14:20:00Z\"\n        },\n        {\n            \"id\": 1005,\n            \"fakultas_name\": \"Fakultas Perikanan dan Kelautan\",\n            \"created_at\": \"2022-06-14T14:20:00Z\"\n        },\n        {\n            \"id\": 1006,\n            \"fakultas_name\": \"Fakultas Matematika dan Ilmu Pengetahuan Alam\",\n            \"created_at\": \"2022-06-14T14:20:00Z\"\n        },\n        {\n            \"id\": 1007,\n            \"fakultas_name\": \"Fakultas Kesehatan Masyarakat\",\n            \"created_at\": \"2022-06-14T14:20:00Z\"\n        },\n        {\n            \"id\": 1008,\n            \"fakultas_name\": \"Fakultas Kehutanan\",\n            \"created_at\": \"2022-06-14T14:20:00Z\"\n        },\n        {\n            \"id\": 1009,\n            \"fakultas_name\": \"Fakultas Kedokteran Hewan\",\n            \"created_at\": \"2022-06-14T14:20:00Z\"\n        },\n        {\n            \"id\": 1010,\n            \"fakultas_name\": \"Fakultas Kedokteran Gigi\",\n            \"created_at\": \"2022-06-14T14:20:00Z\"\n        },\n        {\n            \"id\": 1011,\n            \"fakultas_name\": \"Fakultas Kedokteran\",\n            \"created_at\": \"2022-06-14T14:20:00Z\"\n        },\n        {\n            \"id\": 1012,\n            \"fakultas_name\": \"Fakultas Ilmu Sosial dan Ilmu Politik\",\n            \"created_at\": \"2022-06-14T14:20:00Z\"\n        },\n        {\n            \"id\": 1013,\n            \"fakultas_name\": \"Fakultas Ilmu Budaya\",\n            \"created_at\": \"2022-06-14T14:20:00Z\"\n        },\n        {\n            \"id\": 1014,\n            \"fakultas_name\": \"Fakultas Hukum\",\n            \"created_at\": \"2022-06-14T14:20:00Z\"\n        },\n        {\n            \"id\": 1015,\n            \"fakultas_name\": \"Fakultas Filsafat\",\n            \"created_at\": \"2022-06-14T14:20:00Z\"\n        },\n        {\n            \"id\": 1016,\n            \"fakultas_name\": \"Fakultas Farmasi\",\n            \"created_at\": \"2022-06-14T14:20:00Z\"\n        },\n        {\n            \"id\": 1017,\n            \"fakultas_name\": \"Fakultas Ekonomi dan Bisnis\",\n            \"created_at\": \"2022-06-14T14:20:00Z\"\n        },\n        {\n            \"id\": 1018,\n            \"fakultas_name\": \"Fakultas Ekologi Manusia\",\n            \"created_at\": \"2022-06-14T14:20:00Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "prodi-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/prodi/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"prodi",
+						"list"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "prodi-list",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/prodi/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"prodi",
+								"list"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:9000"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Jun 2022 19:55:50 GMT"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"program_studi\": [\n        {\n            \"id\": 100101,\n            \"prodi_name\": \"Arsitektur\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100102,\n            \"prodi_name\": \"Arsitektur Lansekap\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100103,\n            \"prodi_name\": \"Ilmu Komputer\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100104,\n            \"prodi_name\": \"Manajemen Rekayasa Industri\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100105,\n            \"prodi_name\": \"Perencanaan Tata Ruang dan Pertanahan\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100106,\n            \"prodi_name\": \"Perencanaan Wilayah dan Kota\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100107,\n            \"prodi_name\": \"Teknik Metalurgi dan Material\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100108,\n            \"prodi_name\": \"Rekayasa Infrastruktur Lingkungan\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100109,\n            \"prodi_name\": \"Rekayasa Perancangan Mekanik\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100110,\n            \"prodi_name\": \"Sistem dan Teknologi Informasi\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100111,\n            \"prodi_name\": \"Teknik Arsitektur Interior\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100112,\n            \"prodi_name\": \"Teknik Bioenergi dan Kemurgi\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100113,\n            \"prodi_name\": \"Teknik Biomedis\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100114,\n            \"prodi_name\": \"Teknik Bioproses\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100115,\n            \"prodi_name\": \"Teknik dan Pengelolaan Sumber Daya Air\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100116,\n            \"prodi_name\": \"Teknik Dirgantara\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100117,\n            \"prodi_name\": \"Teknik Elektro\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100118,\n            \"prodi_name\": \"Teknik Fisika\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100119,\n            \"prodi_name\": \"Teknik Geodesi\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100120,\n            \"prodi_name\": \"Teknik Geomatika\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100121,\n            \"prodi_name\": \"Teknik Geofisika\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100122,\n            \"prodi_name\": \"Teknik Geologi\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100123,\n            \"prodi_name\": \"Teknik Industri\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100124,\n            \"prodi_name\": \"Teknik Industri Pertanian\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100125,\n            \"prodi_name\": \"Teknik Infrastruktur Lingkungan\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100126,\n            \"prodi_name\": \"Teknik Infrastruktur Sipil dan Perancangan Arsitektur\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100127,\n            \"prodi_name\": \"Teknik Kelautan\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100128,\n            \"prodi_name\": \"Teknik Kimia\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100129,\n            \"prodi_name\": \"Teknik Lingkungan\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100130,\n            \"prodi_name\": \"Teknik Listrik Industri\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100131,\n            \"prodi_name\": \"Teknik Material\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100132,\n            \"prodi_name\": \"Teknik Mesin\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100133,\n            \"prodi_name\": \"Teknik Nuklir\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100134,\n            \"prodi_name\": \"Teknik Pangan\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100135,\n            \"prodi_name\": \"Teknik Perkapalan\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100136,\n            \"prodi_name\": \"Teknik Perminyakan\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100137,\n            \"prodi_name\": \"Teknik Pertambangan\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100138,\n            \"prodi_name\": \"Teknik Sipil\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100139,\n            \"prodi_name\": \"Teknik Telekomunikasi\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100140,\n            \"prodi_name\": \"Teknik Tenaga Listrik\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100141,\n            \"prodi_name\": \"Teknologi dan Manajemen Perikanan Budidaya\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100142,\n            \"prodi_name\": \"Teknologi dan Manajemen Perikanan Tangkap\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100143,\n            \"prodi_name\": \"Teknologi Hasil Perairan\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100144,\n            \"prodi_name\": \"Teknologi Hasil Perikanan\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100145,\n            \"prodi_name\": \"Teknologi Hasil Ternak\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100146,\n            \"prodi_name\": \"Teknologi Industri Pertanian\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100147,\n            \"prodi_name\": \"Teknologi Pascapanen\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100148,\n            \"prodi_name\": \"Teknologi Produksi Ternak\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100149,\n            \"prodi_name\": \"Teknologi Rekayasa Kimia Industri\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100150,\n            \"prodi_name\": \"Teknologi Rekayasa Otomasi\",\n            \"fakultas_id\": 1001,\n            \"fakultas_name\": \"Fakultas Teknik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100201,\n            \"prodi_name\": \"Desain Interior\",\n            \"fakultas_id\": 1002,\n            \"fakultas_name\": \"Fakultas Seni Rupa dan Desain\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100202,\n            \"prodi_name\": \"Desain Komunikasi Visual\",\n            \"fakultas_id\": 1002,\n            \"fakultas_name\": \"Fakultas Seni Rupa dan Desain\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100203,\n            \"prodi_name\": \"Desain Produk\",\n            \"fakultas_id\": 1002,\n            \"fakultas_name\": \"Fakultas Seni Rupa dan Desain\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100204,\n            \"prodi_name\": \"Kriya\",\n            \"fakultas_id\": 1002,\n            \"fakultas_name\": \"Fakultas Seni Rupa dan Desain\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100205,\n            \"prodi_name\": \"Seni Rupa\",\n            \"fakultas_id\": 1002,\n            \"fakultas_name\": \"Fakultas Seni Rupa dan Desain\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100301,\n            \"prodi_name\": \"Psikologi\",\n            \"fakultas_id\": 1003,\n            \"fakultas_name\": \"Fakultas Psikologi\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100401,\n            \"prodi_name\": \"Agribisnis\",\n            \"fakultas_id\": 1004,\n            \"fakultas_name\": \"Fakultas Peternakan dan Pertanian\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100402,\n            \"prodi_name\": \"Agroekoteknologi\",\n            \"fakultas_id\": 1004,\n            \"fakultas_name\": \"Fakultas Peternakan dan Pertanian\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100403,\n            \"prodi_name\": \"Agronomi dan Hortikultura\",\n            \"fakultas_id\": 1004,\n            \"fakultas_name\": \"Fakultas Peternakan dan Pertanian\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100404,\n            \"prodi_name\": \"Ilmu dan Industri Peternakan\",\n            \"fakultas_id\": 1004,\n            \"fakultas_name\": \"Fakultas Peternakan dan Pertanian\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100405,\n            \"prodi_name\": \"Ilmu Tanah\",\n            \"fakultas_id\": 1004,\n            \"fakultas_name\": \"Fakultas Peternakan dan Pertanian\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100406,\n            \"prodi_name\": \"Kartografi dan Penginderaan Jauh\",\n            \"fakultas_id\": 1004,\n            \"fakultas_name\": \"Fakultas Peternakan dan Pertanian\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100407,\n            \"prodi_name\": \"Manajemen Sumberdaya Lahan\",\n            \"fakultas_id\": 1004,\n            \"fakultas_name\": \"Fakultas Peternakan dan Pertanian\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100408,\n            \"prodi_name\": \"Nutrisi dan Teknologi Pakan\",\n            \"fakultas_id\": 1004,\n            \"fakultas_name\": \"Fakultas Peternakan dan Pertanian\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100409,\n            \"prodi_name\": \"Penyuluhan dan Komunikasi Pertanian\",\n            \"fakultas_id\": 1004,\n            \"fakultas_name\": \"Fakultas Peternakan dan Pertanian\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100410,\n            \"prodi_name\": \"Peternakan\",\n            \"fakultas_id\": 1004,\n            \"fakultas_name\": \"Fakultas Peternakan dan Pertanian\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100411,\n            \"prodi_name\": \"Proteksi Tanaman\",\n            \"fakultas_id\": 1004,\n            \"fakultas_name\": \"Fakultas Peternakan dan Pertanian\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100412,\n            \"prodi_name\": \"Rekayasa Pertanian\",\n            \"fakultas_id\": 1004,\n            \"fakultas_name\": \"Fakultas Peternakan dan Pertanian\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100501,\n            \"prodi_name\": \"Akuakultur\",\n            \"fakultas_id\": 1005,\n            \"fakultas_name\": \"Fakultas Perikanan dan Kelautan\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100502,\n            \"prodi_name\": \"Ilmu dan Teknologi Kelautan\",\n            \"fakultas_id\": 1005,\n            \"fakultas_name\": \"Fakultas Perikanan dan Kelautan\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100503,\n            \"prodi_name\": \"Manajemen Sumberdaya Akuatik\",\n            \"fakultas_id\": 1005,\n            \"fakultas_name\": \"Fakultas Perikanan dan Kelautan\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100504,\n            \"prodi_name\": \"Manajemen Sumberdaya Perairan\",\n            \"fakultas_id\": 1005,\n            \"fakultas_name\": \"Fakultas Perikanan dan Kelautan\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100505,\n            \"prodi_name\": \"Oseanografi\",\n            \"fakultas_id\": 1005,\n            \"fakultas_name\": \"Fakultas Perikanan dan Kelautan\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100601,\n            \"prodi_name\": \"Aktuaria\",\n            \"fakultas_id\": 1006,\n            \"fakultas_name\": \"Fakultas Matematika dan Ilmu Pengetahuan Alam\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100602,\n            \"prodi_name\": \"Astronomi\",\n            \"fakultas_id\": 1006,\n            \"fakultas_name\": \"Fakultas Matematika dan Ilmu Pengetahuan Alam\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100603,\n            \"prodi_name\": \"Biokimia\",\n            \"fakultas_id\": 1006,\n            \"fakultas_name\": \"Fakultas Matematika dan Ilmu Pengetahuan Alam\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100604,\n            \"prodi_name\": \"Biologi\",\n            \"fakultas_id\": 1006,\n            \"fakultas_name\": \"Fakultas Matematika dan Ilmu Pengetahuan Alam\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100605,\n            \"prodi_name\": \"Bioteknologi\",\n            \"fakultas_id\": 1006,\n            \"fakultas_name\": \"Fakultas Matematika dan Ilmu Pengetahuan Alam\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100606,\n            \"prodi_name\": \"Elektronika dan Instrumentasi\",\n            \"fakultas_id\": 1006,\n            \"fakultas_name\": \"Fakultas Matematika dan Ilmu Pengetahuan Alam\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100607,\n            \"prodi_name\": \"Fisika\",\n            \"fakultas_id\": 1006,\n            \"fakultas_name\": \"Fakultas Matematika dan Ilmu Pengetahuan Alam\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100608,\n            \"prodi_name\": \"Geofisika\",\n            \"fakultas_id\": 1006,\n            \"fakultas_name\": \"Fakultas Matematika dan Ilmu Pengetahuan Alam\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100609,\n            \"prodi_name\": \"Geografi\",\n            \"fakultas_id\": 1006,\n            \"fakultas_name\": \"Fakultas Matematika dan Ilmu Pengetahuan Alam\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100610,\n            \"prodi_name\": \"Geografi Lingkungan\",\n            \"fakultas_id\": 1006,\n            \"fakultas_name\": \"Fakultas Matematika dan Ilmu Pengetahuan Alam\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100611,\n            \"prodi_name\": \"Informatika\",\n            \"fakultas_id\": 1006,\n            \"fakultas_name\": \"Fakultas Matematika dan Ilmu Pengetahuan Alam\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100612,\n            \"prodi_name\": \"Kimia\",\n            \"fakultas_id\": 1006,\n            \"fakultas_name\": \"Fakultas Matematika dan Ilmu Pengetahuan Alam\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100613,\n            \"prodi_name\": \"Matematika\",\n            \"fakultas_id\": 1006,\n            \"fakultas_name\": \"Fakultas Matematika dan Ilmu Pengetahuan Alam\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100614,\n            \"prodi_name\": \"Meteorologi\",\n            \"fakultas_id\": 1006,\n            \"fakultas_name\": \"Fakultas Matematika dan Ilmu Pengetahuan Alam\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100615,\n            \"prodi_name\": \"Mikrobiologi\",\n            \"fakultas_id\": 1006,\n            \"fakultas_name\": \"Fakultas Matematika dan Ilmu Pengetahuan Alam\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100616,\n            \"prodi_name\": \"Mikrobiologi Pertanian\",\n            \"fakultas_id\": 1006,\n            \"fakultas_name\": \"Fakultas Matematika dan Ilmu Pengetahuan Alam\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100617,\n            \"prodi_name\": \"Rekayasa Hayati\",\n            \"fakultas_id\": 1006,\n            \"fakultas_name\": \"Fakultas Matematika dan Ilmu Pengetahuan Alam\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100618,\n            \"prodi_name\": \"Statistika\",\n            \"fakultas_id\": 1006,\n            \"fakultas_name\": \"Fakultas Matematika dan Ilmu Pengetahuan Alam\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100701,\n            \"prodi_name\": \"Kesehatan Lingkungan\",\n            \"fakultas_id\": 1007,\n            \"fakultas_name\": \"Fakultas Kesehatan Masyarakat\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100702,\n            \"prodi_name\": \"Kesehatan Masyarakat\",\n            \"fakultas_id\": 1007,\n            \"fakultas_name\": \"Fakultas Kesehatan Masyarakat\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100801,\n            \"prodi_name\": \"Hasil Hutan\",\n            \"fakultas_id\": 1008,\n            \"fakultas_name\": \"Fakultas Kehutanan\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100802,\n            \"prodi_name\": \"Kehutanan\",\n            \"fakultas_id\": 1008,\n            \"fakultas_name\": \"Fakultas Kehutanan\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100803,\n            \"prodi_name\": \"Konservasi Sumberdaya Hutan dan Ekowisata\",\n            \"fakultas_id\": 1008,\n            \"fakultas_name\": \"Fakultas Kehutanan\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100804,\n            \"prodi_name\": \"Manajemen Hutan\",\n            \"fakultas_id\": 1008,\n            \"fakultas_name\": \"Fakultas Kehutanan\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100805,\n            \"prodi_name\": \"Rekayasa Kehutanan\",\n            \"fakultas_id\": 1008,\n            \"fakultas_name\": \"Fakultas Kehutanan\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100806,\n            \"prodi_name\": \"Silvikultur\",\n            \"fakultas_id\": 1008,\n            \"fakultas_name\": \"Fakultas Kehutanan\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 100901,\n            \"prodi_name\": \"Kedokteran Hewan\",\n            \"fakultas_id\": 1009,\n            \"fakultas_name\": \"Fakultas Kedokteran Hewan\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101001,\n            \"prodi_name\": \"Higiene Gigi\",\n            \"fakultas_id\": 1010,\n            \"fakultas_name\": \"Fakultas Kedokteran Gigi\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101002,\n            \"prodi_name\": \"Kedokteran Gigi\",\n            \"fakultas_id\": 1010,\n            \"fakultas_name\": \"Fakultas Kedokteran Gigi\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101101,\n            \"prodi_name\": \"Gizi\",\n            \"fakultas_id\": 1011,\n            \"fakultas_name\": \"Fakultas Kedokteran\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101102,\n            \"prodi_name\": \"Kedokteran\",\n            \"fakultas_id\": 1011,\n            \"fakultas_name\": \"Fakultas Kedokteran\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101103,\n            \"prodi_name\": \"Keperawatan\",\n            \"fakultas_id\": 1011,\n            \"fakultas_name\": \"Fakultas Kedokteran\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101201,\n            \"prodi_name\": \"Administrasi Bisnis\",\n            \"fakultas_id\": 1012,\n            \"fakultas_name\": \"Fakultas Ilmu Sosial dan Ilmu Politik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101202,\n            \"prodi_name\": \"Administrasi Publik\",\n            \"fakultas_id\": 1012,\n            \"fakultas_name\": \"Fakultas Ilmu Sosial dan Ilmu Politik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101203,\n            \"prodi_name\": \"Hubungan Internasional\",\n            \"fakultas_id\": 1012,\n            \"fakultas_name\": \"Fakultas Ilmu Sosial dan Ilmu Politik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101204,\n            \"prodi_name\": \"Ilmu Komunikasi\",\n            \"fakultas_id\": 1012,\n            \"fakultas_name\": \"Fakultas Ilmu Sosial dan Ilmu Politik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101205,\n            \"prodi_name\": \"Ilmu Pemerintahan\",\n            \"fakultas_id\": 1012,\n            \"fakultas_name\": \"Fakultas Ilmu Sosial dan Ilmu Politik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101206,\n            \"prodi_name\": \"Ilmu Perpustakaan\",\n            \"fakultas_id\": 1012,\n            \"fakultas_name\": \"Fakultas Ilmu Sosial dan Ilmu Politik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101207,\n            \"prodi_name\": \"Ilmu Politik\",\n            \"fakultas_id\": 1012,\n            \"fakultas_name\": \"Fakultas Ilmu Sosial dan Ilmu Politik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101208,\n            \"prodi_name\": \"Informasi dan Humas\",\n            \"fakultas_id\": 1012,\n            \"fakultas_name\": \"Fakultas Ilmu Sosial dan Ilmu Politik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101209,\n            \"prodi_name\": \"Kriminologi\",\n            \"fakultas_id\": 1012,\n            \"fakultas_name\": \"Fakultas Ilmu Sosial dan Ilmu Politik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101210,\n            \"prodi_name\": \"Manajemen dan Kebijakan Publik\",\n            \"fakultas_id\": 1012,\n            \"fakultas_name\": \"Fakultas Ilmu Sosial dan Ilmu Politik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101211,\n            \"prodi_name\": \"Pembangunan Sosial dan Kesejahteraan\",\n            \"fakultas_id\": 1012,\n            \"fakultas_name\": \"Fakultas Ilmu Sosial dan Ilmu Politik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101212,\n            \"prodi_name\": \"Pembangunan Wilayah\",\n            \"fakultas_id\": 1012,\n            \"fakultas_name\": \"Fakultas Ilmu Sosial dan Ilmu Politik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101213,\n            \"prodi_name\": \"Sosiologi\",\n            \"fakultas_id\": 1012,\n            \"fakultas_name\": \"Fakultas Ilmu Sosial dan Ilmu Politik\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101301,\n            \"prodi_name\": \"Antropologi Budaya\",\n            \"fakultas_id\": 1013,\n            \"fakultas_name\": \"Fakultas Ilmu Budaya\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101302,\n            \"prodi_name\": \"Antropologi Sosial\",\n            \"fakultas_id\": 1013,\n            \"fakultas_name\": \"Fakultas Ilmu Budaya\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101303,\n            \"prodi_name\": \"Arkeologi\",\n            \"fakultas_id\": 1013,\n            \"fakultas_name\": \"Fakultas Ilmu Budaya\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101304,\n            \"prodi_name\": \"Bahasa Asing Terapan\",\n            \"fakultas_id\": 1013,\n            \"fakultas_name\": \"Fakultas Ilmu Budaya\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101305,\n            \"prodi_name\": \"Bahasa dan Kebudayaan Jepang\",\n            \"fakultas_id\": 1013,\n            \"fakultas_name\": \"Fakultas Ilmu Budaya\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101306,\n            \"prodi_name\": \"Bahasa dan Kebudayaan Korea\",\n            \"fakultas_id\": 1013,\n            \"fakultas_name\": \"Fakultas Ilmu Budaya\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101307,\n            \"prodi_name\": \"Sastra Arab\",\n            \"fakultas_id\": 1013,\n            \"fakultas_name\": \"Fakultas Ilmu Budaya\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101308,\n            \"prodi_name\": \"Sastra Belanda\",\n            \"fakultas_id\": 1013,\n            \"fakultas_name\": \"Fakultas Ilmu Budaya\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101309,\n            \"prodi_name\": \"Sastra Cina\",\n            \"fakultas_id\": 1013,\n            \"fakultas_name\": \"Fakultas Ilmu Budaya\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101310,\n            \"prodi_name\": \"Sastra Indonesia\",\n            \"fakultas_id\": 1013,\n            \"fakultas_name\": \"Fakultas Ilmu Budaya\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101311,\n            \"prodi_name\": \"Sastra Inggris\",\n            \"fakultas_id\": 1013,\n            \"fakultas_name\": \"Fakultas Ilmu Budaya\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101312,\n            \"prodi_name\": \"Sastra Jawa\",\n            \"fakultas_id\": 1013,\n            \"fakultas_name\": \"Fakultas Ilmu Budaya\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101313,\n            \"prodi_name\": \"Sastra Jepang\",\n            \"fakultas_id\": 1013,\n            \"fakultas_name\": \"Fakultas Ilmu Budaya\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101314,\n            \"prodi_name\": \"Sastra Jerman\",\n            \"fakultas_id\": 1013,\n            \"fakultas_name\": \"Fakultas Ilmu Budaya\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101315,\n            \"prodi_name\": \"Sastra Perancis\",\n            \"fakultas_id\": 1013,\n            \"fakultas_name\": \"Fakultas Ilmu Budaya\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101316,\n            \"prodi_name\": \"Sastra Slavia\",\n            \"fakultas_id\": 1013,\n            \"fakultas_name\": \"Fakultas Ilmu Budaya\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101317,\n            \"prodi_name\": \"Sejarah\",\n            \"fakultas_id\": 1013,\n            \"fakultas_name\": \"Fakultas Ilmu Budaya\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101401,\n            \"prodi_name\": \"Hukum\",\n            \"fakultas_id\": 1014,\n            \"fakultas_name\": \"Fakultas Hukum\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101501,\n            \"prodi_name\": \"Filsafat\",\n            \"fakultas_id\": 1015,\n            \"fakultas_name\": \"Fakultas Filsafat\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101601,\n            \"prodi_name\": \"Farmasi\",\n            \"fakultas_id\": 1016,\n            \"fakultas_name\": \"Fakultas Farmasi\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101701,\n            \"prodi_name\": \"Akuntansi\",\n            \"fakultas_id\": 1017,\n            \"fakultas_name\": \"Fakultas Ekonomi dan Bisnis\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101702,\n            \"prodi_name\": \"Akuntansi Perpajakan\",\n            \"fakultas_id\": 1017,\n            \"fakultas_name\": \"Fakultas Ekonomi dan Bisnis\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101703,\n            \"prodi_name\": \"Bisnis\",\n            \"fakultas_id\": 1017,\n            \"fakultas_name\": \"Fakultas Ekonomi dan Bisnis\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101704,\n            \"prodi_name\": \"Ekonomi\",\n            \"fakultas_id\": 1017,\n            \"fakultas_name\": \"Fakultas Ekonomi dan Bisnis\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101705,\n            \"prodi_name\": \"Ekonomi Islam\",\n            \"fakultas_id\": 1017,\n            \"fakultas_name\": \"Fakultas Ekonomi dan Bisnis\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101706,\n            \"prodi_name\": \"Ekonomi Pembangunan\",\n            \"fakultas_id\": 1017,\n            \"fakultas_name\": \"Fakultas Ekonomi dan Bisnis\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101707,\n            \"prodi_name\": \"Ekonomi Pertanian dan Agribisnis\",\n            \"fakultas_id\": 1017,\n            \"fakultas_name\": \"Fakultas Ekonomi dan Bisnis\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101708,\n            \"prodi_name\": \"Ekonomi Sumberdaya dan Lingkungan\",\n            \"fakultas_id\": 1017,\n            \"fakultas_name\": \"Fakultas Ekonomi dan Bisnis\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101709,\n            \"prodi_name\": \"Ekonomi Syariah\",\n            \"fakultas_id\": 1017,\n            \"fakultas_name\": \"Fakultas Ekonomi dan Bisnis\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101710,\n            \"prodi_name\": \"Ilmu Kesejahteraan Sosial\",\n            \"fakultas_id\": 1017,\n            \"fakultas_name\": \"Fakultas Ekonomi dan Bisnis\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101711,\n            \"prodi_name\": \"Kewirausahaan\",\n            \"fakultas_id\": 1017,\n            \"fakultas_name\": \"Fakultas Ekonomi dan Bisnis\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101712,\n            \"prodi_name\": \"Manajemen\",\n            \"fakultas_id\": 1017,\n            \"fakultas_name\": \"Fakultas Ekonomi dan Bisnis\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101713,\n            \"prodi_name\": \"Manajemen dan Administrasi Logistik\",\n            \"fakultas_id\": 1017,\n            \"fakultas_name\": \"Fakultas Ekonomi dan Bisnis\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101801,\n            \"prodi_name\": \"Ilmu Keluarga dan Konsumen\",\n            \"fakultas_id\": 1018,\n            \"fakultas_name\": \"Fakultas Ekologi Manusia\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        },\n        {\n            \"id\": 101802,\n            \"prodi_name\": \"Komunikasi dan Pengembangan Masyarakat\",\n            \"fakultas_id\": 1018,\n            \"fakultas_name\": \"Fakultas Ekologi Manusia\",\n            \"created_at\": \"2022-06-14T15:09:00Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"logout"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "logout",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/user/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"logout"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:9000"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "token=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Jun 2022 18:44:23 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "10"
+						}
+					],
+					"cookie": [],
+					"body": "logged out"
+				}
+			]
+		}
+	]
+}
