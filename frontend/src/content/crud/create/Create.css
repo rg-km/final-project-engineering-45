@@ -1,0 +1,30 @@
+.create-container {
+	margin: 20px;
+}
+
+.form-create {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	margin: 10px;
+}
+
+.form-label {
+	padding-right: 20px;
+}
+
+.form-control {
+	height: 70px;
+}
+
+.btn-create {
+	background-color: #06CDFF;
+	padding: 10px 20px;
+	text-align: center;
+	color: #fff;
+}
+
+.btn-create:hover {
+	background-color: #FFCDCD;
+	color: #000;
+}

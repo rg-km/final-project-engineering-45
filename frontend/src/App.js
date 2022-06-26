@@ -6,11 +6,16 @@ import Fakultas from "./content/fakultas/Fakultas";
 import Prodi from "./content/prodi/Prodi";
 import ProdiDetail from "./content/prodiDetail/ProdiDetail";
 import Panduan from "./content/panduan/Panduan";
+import Create from './content/crud/create/Create';
+import Login from './content/login-and-register/Login';
+import Register from './content/login-and-register/Register';
 
 const App = () => {
 	return (
 		<Routes>
 			<Route path="/" element={<Home />} />
+		    <Route path='/login' element={<Login />} />
+		    <Route path='/register' element={<Register />} />
 			<Route path="RightWay" element={<About />} />
 			<Route path="fakultas">
 				<Route index element={<Fakultas />} />
@@ -22,6 +27,7 @@ const App = () => {
 			<Route path="panduan">
 				<Route index element={<Panduan />} />
 			</Route>
+			<Route path='/create' element={<Create/>} />
 		</Routes>
 	);
 };
