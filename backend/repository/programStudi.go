@@ -96,43 +96,6 @@ func (p *ProdiRepository) FetchProdi() ([]ProgramStudi, error) {
 	return prodi, nil
 }
 
-//fetch prodi by id
-func (p *ProdiRepository) FetchProdiByID(id int64) (ProgramStudi, error) {
-	var prodi ProgramStudi
-
-	sqlStatement := `SELECT 
-	prodi.id,
-	prodi.prodi_name,
-	prodi.fakultas_id,
-	fakultas.fakultas_name,
-	prodi.created_at,
-	prodi.deskripsi,
-	prodi.karakter,
-	prodi.mata_kuliah,
-	prodi.prospek
-	FROM program_studi prodi
-	INNER JOIN fakultas ON prodi.fakultas_id = fakultas.id
-	WHERE prodi.id = ?`
-
-	rows := p.db.QueryRow(sqlStatement, id)
-	err := rows.Scan(
-		&prodi.ID,
-		&prodi.ProdiName,
-		&prodi.FakultasID,
-		&prodi.FakultasName,
-		&prodi.CreatedAt,
-		&prodi.Deskripsi,
-		&prodi.Karakter,
-		&prodi.MataKuliah,
-		&prodi.Prospek,
-	)
-	if err != nil {
-		return prodi, err
-	}
-
-	return prodi, nil
-}
-
 func (p *ProdiRepository) FetchProdiByFakultasName(fakultasName string) ([]ProgramStudi, error) {
 	var prodi []ProgramStudi
 
