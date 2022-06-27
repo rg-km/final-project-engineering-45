@@ -50,22 +50,3 @@ func (f *FakultasRepository) FetchFakultasByName(fakultasName string) (Fakultas,
 
 	return fakultas, nil
 }
-
-//fetch fakultas by id
-func (f *FakultasRepository) FetchFakultasByID(id int64) (Fakultas, error) {
-	sqlStatement := `SELECT * from fakultas WHERE id = ?`
-	var fakultas Fakultas
-	rows, err := f.db.Query(sqlStatement, id)
-	if err != nil {
-		return fakultas, err
-	}
-
-	for rows.Next() {
-		err = rows.Scan(&fakultas.ID, &fakultas.FakultasName, &fakultas.CreatedAt)
-		if err != nil {
-			return fakultas, err
-		}
-	}
-
-	return fakultas, nil
-}
